@@ -1,0 +1,24 @@
+# Doğrudan bağımlılıklar. Birebir sürümler için requirements.lock.txt kullan.
+#
+# PyTorch bu dosyada YOK — ayrı indeksten kurulur, yoksa CPU sürümü gelir:
+#   uv pip install torch torchvision --index-url https://download.pytorch.org/whl/cu128
+
+# Modeller
+transformers
+sentence-transformers
+accelerate
+bitsandbytes
+
+# Veritabanları
+chromadb
+
+# Servis
+fastapi
+uvicorn[standard]
+python-multipart
+
+# Görüntü işleme (pikselden renk çıkarımı)
+opencv-python
+scikit-learn
+pillow
+numpy

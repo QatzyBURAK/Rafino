@@ -1,0 +1,31 @@
+# Sanal ortam
+.venv/
+venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# Üretilen veri — fotoğraflardan ve koddan yeniden üretilebilir
+data/chroma/
+*.db
+*.sqlite3
+
+# NOT: data/photos/ bilerek ignore EDİLMEDİ.
+# Fotoğraflar yeniden üretilemez; laptop ölürse tek kopyası GitHub'da olmalı.
+
+# Ortam değişkenleri / anahtarlar
+.env
+.env.*
+
+# Serena proje verisi
+.serena/
+
+# Editör / işletim sistemi
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
