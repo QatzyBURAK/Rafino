@@ -70,9 +70,11 @@ class GorselEmbedder:
             normalize_embeddings=True,
         )
 
-    def sorguyu_gom(self, sorgular: list[str]) -> np.ndarray:
+    def sorguyu_gom(self, sorgular: list[str], ilerleme: bool = False) -> np.ndarray:
         model = self._yukle()
-        return model.encode_query(sorgular, normalize_embeddings=True)
+        return model.encode_query(
+            sorgular, show_progress_bar=ilerleme, normalize_embeddings=True
+        )
 
     def bosalt(self) -> None:
         if self._model is not None:
@@ -113,10 +115,11 @@ class MetinEmbedder:
             normalize_embeddings=True,
         )
 
-    def sorguyu_gom(self, sorgular: list[str]) -> np.ndarray:
+    def sorguyu_gom(self, sorgular: list[str], ilerleme: bool = False) -> np.ndarray:
         model = self._yukle()
         return model.encode(
             [config.E5_SORGU_ONEKI + s for s in sorgular],
+            show_progress_bar=ilerleme,
             normalize_embeddings=True,
         )
 

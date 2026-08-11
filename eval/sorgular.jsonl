@@ -1,0 +1,112 @@
+{"sorgu": "tişört", "dogru": [5891, 7990, 8322, 9694, 10866, 53759], "tip": "kategori", "zorluk": "kolay"}
+{"sorgu": "gömlek", "dogru": [4943, 6617, 9452, 15970, 22395, 30805], "tip": "kategori", "zorluk": "kolay"}
+{"sorgu": "günlük ayakkabı", "dogru": [9204, 26538, 39943, 39944, 39988, 49461], "tip": "kategori", "zorluk": "kolay"}
+{"sorgu": "el çantası", "dogru": [29742, 35913, 42841, 47359, 47957, 58183], "tip": "kategori", "zorluk": "kolay"}
+{"sorgu": "saat", "dogru": [5068, 23278, 30039, 37472, 44984, 59263], "tip": "kategori", "zorluk": "kolay"}
+{"sorgu": "spor ayakkabı", "dogru": [3168, 12993, 23882, 34835, 36137, 46086], "tip": "kategori", "zorluk": "kolay"}
+{"sorgu": "parfüm", "dogru": [26197, 36934, 43967, 43993, 44187, 44379], "tip": "kategori", "zorluk": "kolay"}
+{"sorgu": "güneş gözlüğü", "dogru": [16957, 21346, 21348, 28200, 51667, 51693], "tip": "kategori", "zorluk": "kolay"}
+{"sorgu": "pantolon", "dogru": [10257, 26163, 32563, 32564, 56822, 57138], "tip": "kategori", "zorluk": "kolay"}
+{"sorgu": "kemer", "dogru": [17072, 17075, 18806, 27841, 48123, 48124], "tip": "kategori", "zorluk": "kolay"}
+{"sorgu": "beyaz tişört", "dogru": [9694], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "siyah tişört", "dogru": [5891], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "gri tişört", "dogru": [53759], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "mavi tişört", "dogru": [8322], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "lacivert tişört", "dogru": [7990], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "kırmızı tişört", "dogru": [10866], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "mavi gömlek", "dogru": [22395], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "yeşil gömlek", "dogru": [30805], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "kırmızı gömlek", "dogru": [9452], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "siyah gömlek", "dogru": [6617], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "lacivert gömlek", "dogru": [15970], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "beyaz gömlek", "dogru": [4943], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "siyah günlük ayakkabı", "dogru": [9204], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "beyaz günlük ayakkabı", "dogru": [39988], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "kırmızı günlük ayakkabı", "dogru": [26538], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "kahverengi günlük ayakkabı", "dogru": [39943], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "mavi günlük ayakkabı", "dogru": [49461], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "gri günlük ayakkabı", "dogru": [39944], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "kahverengi el çantası", "dogru": [47359], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "siyah el çantası", "dogru": [35913], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "mavi el çantası", "dogru": [47957], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "bej el çantası", "dogru": [42841], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "beyaz el çantası", "dogru": [58183], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "petrol mavisi el çantası", "dogru": [29742], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "siyah saat", "dogru": [30039], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "beyaz saat", "dogru": [44984], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "gümüş saat", "dogru": [59263], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "kırık beyaz saat", "dogru": [23278], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "gri saat", "dogru": [37472], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "mavi saat", "dogru": [5068], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "beyaz spor ayakkabı", "dogru": [3168], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "siyah spor ayakkabı", "dogru": [12993], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "mavi spor ayakkabı", "dogru": [34835], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "gri spor ayakkabı", "dogru": [23882], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "lavanta spor ayakkabı", "dogru": [46086], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "pembe spor ayakkabı", "dogru": [36137], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "beyaz parfüm", "dogru": [44187], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "pembe parfüm", "dogru": [43993], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "siyah parfüm", "dogru": [44379], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "yeşil parfüm", "dogru": [26197], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "kırmızı parfüm", "dogru": [43967], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "altın parfüm", "dogru": [36934], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "siyah güneş gözlüğü", "dogru": [16957], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "kahverengi güneş gözlüğü", "dogru": [51693], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "gümüş güneş gözlüğü", "dogru": [21348], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "bakır güneş gözlüğü", "dogru": [28200], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "gri güneş gözlüğü", "dogru": [51667], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "altın güneş gözlüğü", "dogru": [21346], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "gri pantolon", "dogru": [26163], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "siyah pantolon", "dogru": [10257], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "kahverengi pantolon", "dogru": [57138], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "bej pantolon", "dogru": [56822], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "mavi pantolon", "dogru": [32563], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "turuncu pantolon", "dogru": [32564], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "siyah kemer", "dogru": [48123], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "kahverengi kemer", "dogru": [48124], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "beyaz kemer", "dogru": [27841], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "lacivert kemer", "dogru": [17075], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "ten rengi kemer", "dogru": [18806], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "gri kemer", "dogru": [17072], "tip": "renk+kategori", "zorluk": "zor"}
+{"sorgu": "Classic", "dogru": [9694], "tip": "marka", "zorluk": "anahtar kelime"}
+{"sorgu": "Puma", "dogru": [5891, 9204, 53759], "tip": "marka", "zorluk": "anahtar kelime"}
+{"sorgu": "Doodle", "dogru": [8322], "tip": "marka", "zorluk": "anahtar kelime"}
+{"sorgu": "Fila", "dogru": [7990, 23882], "tip": "marka", "zorluk": "anahtar kelime"}
+{"sorgu": "Wrangler", "dogru": [10866], "tip": "marka", "zorluk": "anahtar kelime"}
+{"sorgu": "Mark", "dogru": [22395], "tip": "marka", "zorluk": "anahtar kelime"}
+{"sorgu": "Fabindia", "dogru": [30805], "tip": "marka", "zorluk": "anahtar kelime"}
+{"sorgu": "John", "dogru": [9452, 10257, 26163, 56822], "tip": "marka", "zorluk": "anahtar kelime"}
+{"sorgu": "Spykar", "dogru": [6617], "tip": "marka", "zorluk": "anahtar kelime"}
+{"sorgu": "Turtle", "dogru": [15970], "tip": "marka", "zorluk": "anahtar kelime"}
+{"sorgu": "Gini", "dogru": [4943], "tip": "marka", "zorluk": "anahtar kelime"}
+{"sorgu": "Gas", "dogru": [39988], "tip": "marka", "zorluk": "anahtar kelime"}
+{"sorgu": "GAS", "dogru": [39943, 39944], "tip": "marka", "zorluk": "anahtar kelime"}
+{"sorgu": "Vans", "dogru": [49461], "tip": "marka", "zorluk": "anahtar kelime"}
+{"sorgu": "Baggit", "dogru": [47359], "tip": "marka", "zorluk": "anahtar kelime"}
+{"sorgu": "Peperone", "dogru": [35913], "tip": "marka", "zorluk": "anahtar kelime"}
+{"sorgu": "Murcia", "dogru": [47957], "tip": "marka", "zorluk": "anahtar kelime"}
+{"sorgu": "French", "dogru": [42841], "tip": "marka", "zorluk": "anahtar kelime"}
+{"sorgu": "Rocky", "dogru": [58183], "tip": "marka", "zorluk": "anahtar kelime"}
+{"sorgu": "Kiara", "dogru": [29742], "tip": "marka", "zorluk": "anahtar kelime"}
+{"sorgu": "Skagen", "dogru": [30039], "tip": "marka", "zorluk": "anahtar kelime"}
+{"sorgu": "Maxima", "dogru": [23278, 44984], "tip": "marka", "zorluk": "anahtar kelime"}
+{"sorgu": "Titan", "dogru": [59263], "tip": "marka", "zorluk": "anahtar kelime"}
+{"sorgu": "Esprit", "dogru": [37472], "tip": "marka", "zorluk": "anahtar kelime"}
+{"sorgu": "Being", "dogru": [5068], "tip": "marka", "zorluk": "anahtar kelime"}
+{"sorgu": "Nike", "dogru": [3168, 36137, 44187], "tip": "marka", "zorluk": "anahtar kelime"}
+{"sorgu": "ADIDAS", "dogru": [12993, 34835, 44379, 46086], "tip": "marka", "zorluk": "anahtar kelime"}
+{"sorgu": "Police", "dogru": [43993], "tip": "marka", "zorluk": "anahtar kelime"}
+{"sorgu": "Formula", "dogru": [26197], "tip": "marka", "zorluk": "anahtar kelime"}
+{"sorgu": "DKNY", "dogru": [43967], "tip": "marka", "zorluk": "anahtar kelime"}
+{"sorgu": "Giorgio", "dogru": [36934], "tip": "marka", "zorluk": "anahtar kelime"}
+{"sorgu": "Image", "dogru": [16957], "tip": "marka", "zorluk": "anahtar kelime"}
+{"sorgu": "Van", "dogru": [51693], "tip": "marka", "zorluk": "anahtar kelime"}
+{"sorgu": "Pal", "dogru": [21346, 21348], "tip": "marka", "zorluk": "anahtar kelime"}
+{"sorgu": "Ray-Ban", "dogru": [28200], "tip": "marka", "zorluk": "anahtar kelime"}
+{"sorgu": "Louis", "dogru": [51667], "tip": "marka", "zorluk": "anahtar kelime"}
+{"sorgu": "Elle", "dogru": [57138], "tip": "marka", "zorluk": "anahtar kelime"}
+{"sorgu": "ONLY", "dogru": [32563, 32564], "tip": "marka", "zorluk": "anahtar kelime"}
+{"sorgu": "Fossil", "dogru": [48123, 48124], "tip": "marka", "zorluk": "anahtar kelime"}
+{"sorgu": "Bulchee", "dogru": [27841], "tip": "marka", "zorluk": "anahtar kelime"}
+{"sorgu": "Lino", "dogru": [17072, 17075], "tip": "marka", "zorluk": "anahtar kelime"}
+{"sorgu": "Peter", "dogru": [18806], "tip": "marka", "zorluk": "anahtar kelime"}

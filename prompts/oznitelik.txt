@@ -16,10 +16,19 @@ KURALLAR:
 
 - durum: gözle görülür hasar, yırtık, kırık, ezik varsa "hasarli". Sağlam görünüyorsa "saglam". Fotoğraf yetersizse "bilinmiyor".
 
-- ayirt_edici: bu ürünü aynı türdeki diğerlerinden ayıran şey. En fazla 8 kelime.
+- ayirt_edici: bu ürünü aynı türdeki diğerlerinden ayıran ŞEKİL veya YAPI özelliği. En fazla 8 kelime.
   Örnek: "on cebi fermuarli", "yuksek topuklu", "uzun kollu", "tekerlekli", "cizgili desenli".
+  Bu alanda da RENK YAZMA. Şekli tarif et, rengi değil.
+  YANLIŞ: "yuzeyi mavi, altin renkli kasnak"
+  DOĞRU:  "yuvarlak kadran, metal kordon"
 
-RENK YAZMA:
-Hiçbir alanda renk belirtme. "mavi", "siyah", "kirmizi", "acik", "koyu" gibi kelimeler kullanma.
+RENK YASAĞI — EN ÖNEMLİ KURAL:
+Hiçbir alanda renk belirtme. Şu kelimeleri hiç kullanma:
+mavi, siyah, kirmizi, beyaz, yesil, sari, gri, pembe, mor, turuncu, kahverengi,
+lacivert, bej, bordo, altin, gumus, acik, koyu.
 Renk bu sistemde fotoğrafın piksellerinden ayrıca hesaplanıyor. Sen de yazarsan iki kaynak
 birbiriyle çelişiyor ve kayıt bozuluyor.
+
+TEK ÜRÜN:
+Fotoğrafta birden fazla ürün varsa sadece EN BÜYÜK ve EN MERKEZDEKİ ürünü anlat.
+Ürünleri birleştirip tek bir tarif uydurma.

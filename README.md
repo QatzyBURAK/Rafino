@@ -76,6 +76,27 @@ Kurulumdan sonra doğrula:
 Bu betik özellikle şunu yakalar: `torch.__version__` sonunda `+cpu` varsa GPU hiç
 kullanılmıyordur ve her şey sessizce yavaş çalışır.
 
+## Değerlendirme verisi
+
+Ölçüm için kullanılan ürün fotoğrafları
+[`PestoRosso/lamoda-fashion-product-images`](https://huggingface.co/datasets/PestoRosso/lamoda-fashion-product-images)
+veri setinden alınıyor (Kaggle *Fashion Product Images Dataset*'in yüksek
+çözünürlüklü alt kümesi, MIT lisansı ile yayımlanmış).
+
+**Fotoğraflar bu depoda tutulmuyor.** Veri setinin lisansı yükleyici tarafından
+MIT olarak beyan edilmiş olsa da, altlarındaki ürün fotoğrafları e-ticaret
+sitesine ve markalara ait; yeniden dağıtmak yerine yeniden üretiyoruz.
+
+Seti kurmak için:
+
+```
+.venv\Scripts\python.exe scripts\veriseti_kur.py 60
+```
+
+Bu komut fotoğrafları `data/photos/` altına yazar, ground truth'u
+`eval/urunler.jsonl` ve sorguları `eval/sorgular.jsonl` olarak üretir.
+Ürün kimlikleri kayıtlı olduğu için sonuç her makinede birebir aynıdır.
+
 ## Donanım
 
 RTX 4070 Laptop — 8 GB VRAM. **İki model asla aynı anda belleğe yüklenmez.**

@@ -1,0 +1,1132 @@
+{
+  "indeks": "A (görsel) tek başına",
+  "urun_sayisi": 60,
+  "sorgu_sayisi": 112,
+  "ozet": {
+    "recall@1": 0.35788690476190477,
+    "recall@5": 0.6525297619047619,
+    "mrr": 0.5328869047619048
+  },
+  "sorgular": [
+    {
+      "sorgu": "tişört",
+      "tip": "kategori",
+      "zorluk": "kolay",
+      "dogru_sayisi": 6,
+      "rr": 1.0,
+      "ilk_sira": 1,
+      "recall@1": 0.16666666666666666,
+      "recall@5": 0.6666666666666666
+    },
+    {
+      "sorgu": "gömlek",
+      "tip": "kategori",
+      "zorluk": "kolay",
+      "dogru_sayisi": 6,
+      "rr": 0.0,
+      "ilk_sira": null,
+      "recall@1": 0.0,
+      "recall@5": 0.0
+    },
+    {
+      "sorgu": "günlük ayakkabı",
+      "tip": "kategori",
+      "zorluk": "kolay",
+      "dogru_sayisi": 6,
+      "rr": 1.0,
+      "ilk_sira": 1,
+      "recall@1": 0.16666666666666666,
+      "recall@5": 0.6666666666666666
+    },
+    {
+      "sorgu": "el çantası",
+      "tip": "kategori",
+      "zorluk": "kolay",
+      "dogru_sayisi": 6,
+      "rr": 1.0,
+      "ilk_sira": 1,
+      "recall@1": 0.16666666666666666,
+      "recall@5": 0.6666666666666666
+    },
+    {
+      "sorgu": "saat",
+      "tip": "kategori",
+      "zorluk": "kolay",
+      "dogru_sayisi": 6,
+      "rr": 1.0,
+      "ilk_sira": 1,
+      "recall@1": 0.16666666666666666,
+      "recall@5": 0.8333333333333334
+    },
+    {
+      "sorgu": "spor ayakkabı",
+      "tip": "kategori",
+      "zorluk": "kolay",
+      "dogru_sayisi": 6,
+      "rr": 0.3333333333333333,
+      "ilk_sira": 3,
+      "recall@1": 0.0,
+      "recall@5": 0.5
+    },
+    {
+      "sorgu": "parfüm",
+      "tip": "kategori",
+      "zorluk": "kolay",
+      "dogru_sayisi": 6,
+      "rr": 1.0,
+      "ilk_sira": 1,
+      "recall@1": 0.16666666666666666,
+      "recall@5": 0.8333333333333334
+    },
+    {
+      "sorgu": "güneş gözlüğü",
+      "tip": "kategori",
+      "zorluk": "kolay",
+      "dogru_sayisi": 6,
+      "rr": 1.0,
+      "ilk_sira": 1,
+      "recall@1": 0.16666666666666666,
+      "recall@5": 0.8333333333333334
+    },
+    {
+      "sorgu": "pantolon",
+      "tip": "kategori",
+      "zorluk": "kolay",
+      "dogru_sayisi": 6,
+      "rr": 1.0,
+      "ilk_sira": 1,
+      "recall@1": 0.16666666666666666,
+      "recall@5": 0.8333333333333334
+    },
+    {
+      "sorgu": "kemer",
+      "tip": "kategori",
+      "zorluk": "kolay",
+      "dogru_sayisi": 6,
+      "rr": 0.0,
+      "ilk_sira": null,
+      "recall@1": 0.0,
+      "recall@5": 0.0
+    },
+    {
+      "sorgu": "beyaz tişört",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 1.0,
+      "ilk_sira": 1,
+      "recall@1": 1.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "siyah tişört",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 0.25,
+      "ilk_sira": 4,
+      "recall@1": 0.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "gri tişört",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 1.0,
+      "ilk_sira": 1,
+      "recall@1": 1.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "mavi tişört",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 1.0,
+      "ilk_sira": 1,
+      "recall@1": 1.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "lacivert tişört",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 0.0,
+      "ilk_sira": null,
+      "recall@1": 0.0,
+      "recall@5": 0.0
+    },
+    {
+      "sorgu": "kırmızı tişört",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 1.0,
+      "ilk_sira": 1,
+      "recall@1": 1.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "mavi gömlek",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 0.2,
+      "ilk_sira": 5,
+      "recall@1": 0.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "yeşil gömlek",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 1.0,
+      "ilk_sira": 1,
+      "recall@1": 1.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "kırmızı gömlek",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 1.0,
+      "ilk_sira": 1,
+      "recall@1": 1.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "siyah gömlek",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 0.2,
+      "ilk_sira": 5,
+      "recall@1": 0.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "lacivert gömlek",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 0.0,
+      "ilk_sira": null,
+      "recall@1": 0.0,
+      "recall@5": 0.0
+    },
+    {
+      "sorgu": "beyaz gömlek",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 0.0,
+      "ilk_sira": null,
+      "recall@1": 0.0,
+      "recall@5": 0.0
+    },
+    {
+      "sorgu": "siyah günlük ayakkabı",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 0.0,
+      "ilk_sira": null,
+      "recall@1": 0.0,
+      "recall@5": 0.0
+    },
+    {
+      "sorgu": "beyaz günlük ayakkabı",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 0.0,
+      "ilk_sira": null,
+      "recall@1": 0.0,
+      "recall@5": 0.0
+    },
+    {
+      "sorgu": "kırmızı günlük ayakkabı",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 0.5,
+      "ilk_sira": 2,
+      "recall@1": 0.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "kahverengi günlük ayakkabı",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 0.0,
+      "ilk_sira": null,
+      "recall@1": 0.0,
+      "recall@5": 0.0
+    },
+    {
+      "sorgu": "mavi günlük ayakkabı",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 1.0,
+      "ilk_sira": 1,
+      "recall@1": 1.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "gri günlük ayakkabı",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 0.3333333333333333,
+      "ilk_sira": 3,
+      "recall@1": 0.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "kahverengi el çantası",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 1.0,
+      "ilk_sira": 1,
+      "recall@1": 1.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "siyah el çantası",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 1.0,
+      "ilk_sira": 1,
+      "recall@1": 1.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "mavi el çantası",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 0.3333333333333333,
+      "ilk_sira": 3,
+      "recall@1": 0.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "bej el çantası",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 0.0,
+      "ilk_sira": null,
+      "recall@1": 0.0,
+      "recall@5": 0.0
+    },
+    {
+      "sorgu": "beyaz el çantası",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 1.0,
+      "ilk_sira": 1,
+      "recall@1": 1.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "petrol mavisi el çantası",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 1.0,
+      "ilk_sira": 1,
+      "recall@1": 1.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "siyah saat",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 1.0,
+      "ilk_sira": 1,
+      "recall@1": 1.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "beyaz saat",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 0.2,
+      "ilk_sira": 5,
+      "recall@1": 0.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "gümüş saat",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 0.5,
+      "ilk_sira": 2,
+      "recall@1": 0.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "kırık beyaz saat",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 1.0,
+      "ilk_sira": 1,
+      "recall@1": 1.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "gri saat",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 0.5,
+      "ilk_sira": 2,
+      "recall@1": 0.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "mavi saat",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 1.0,
+      "ilk_sira": 1,
+      "recall@1": 1.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "beyaz spor ayakkabı",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 0.0,
+      "ilk_sira": null,
+      "recall@1": 0.0,
+      "recall@5": 0.0
+    },
+    {
+      "sorgu": "siyah spor ayakkabı",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 0.0,
+      "ilk_sira": null,
+      "recall@1": 0.0,
+      "recall@5": 0.0
+    },
+    {
+      "sorgu": "mavi spor ayakkabı",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 0.5,
+      "ilk_sira": 2,
+      "recall@1": 0.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "gri spor ayakkabı",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 0.5,
+      "ilk_sira": 2,
+      "recall@1": 0.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "lavanta spor ayakkabı",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 0.0,
+      "ilk_sira": null,
+      "recall@1": 0.0,
+      "recall@5": 0.0
+    },
+    {
+      "sorgu": "pembe spor ayakkabı",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 0.5,
+      "ilk_sira": 2,
+      "recall@1": 0.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "beyaz parfüm",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 1.0,
+      "ilk_sira": 1,
+      "recall@1": 1.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "pembe parfüm",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 0.5,
+      "ilk_sira": 2,
+      "recall@1": 0.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "siyah parfüm",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 1.0,
+      "ilk_sira": 1,
+      "recall@1": 1.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "yeşil parfüm",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 1.0,
+      "ilk_sira": 1,
+      "recall@1": 1.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "kırmızı parfüm",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 0.5,
+      "ilk_sira": 2,
+      "recall@1": 0.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "altın parfüm",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 1.0,
+      "ilk_sira": 1,
+      "recall@1": 1.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "siyah güneş gözlüğü",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 0.3333333333333333,
+      "ilk_sira": 3,
+      "recall@1": 0.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "kahverengi güneş gözlüğü",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 1.0,
+      "ilk_sira": 1,
+      "recall@1": 1.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "gümüş güneş gözlüğü",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 0.2,
+      "ilk_sira": 5,
+      "recall@1": 0.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "bakır güneş gözlüğü",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 1.0,
+      "ilk_sira": 1,
+      "recall@1": 1.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "gri güneş gözlüğü",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 1.0,
+      "ilk_sira": 1,
+      "recall@1": 1.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "altın güneş gözlüğü",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 1.0,
+      "ilk_sira": 1,
+      "recall@1": 1.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "gri pantolon",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 1.0,
+      "ilk_sira": 1,
+      "recall@1": 1.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "siyah pantolon",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 1.0,
+      "ilk_sira": 1,
+      "recall@1": 1.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "kahverengi pantolon",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 1.0,
+      "ilk_sira": 1,
+      "recall@1": 1.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "bej pantolon",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 0.0,
+      "ilk_sira": null,
+      "recall@1": 0.0,
+      "recall@5": 0.0
+    },
+    {
+      "sorgu": "mavi pantolon",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 1.0,
+      "ilk_sira": 1,
+      "recall@1": 1.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "turuncu pantolon",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 0.5,
+      "ilk_sira": 2,
+      "recall@1": 0.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "siyah kemer",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 0.2,
+      "ilk_sira": 5,
+      "recall@1": 0.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "kahverengi kemer",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 0.0,
+      "ilk_sira": null,
+      "recall@1": 0.0,
+      "recall@5": 0.0
+    },
+    {
+      "sorgu": "beyaz kemer",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 1.0,
+      "ilk_sira": 1,
+      "recall@1": 1.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "lacivert kemer",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 0.0,
+      "ilk_sira": null,
+      "recall@1": 0.0,
+      "recall@5": 0.0
+    },
+    {
+      "sorgu": "ten rengi kemer",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 0.0,
+      "ilk_sira": null,
+      "recall@1": 0.0,
+      "recall@5": 0.0
+    },
+    {
+      "sorgu": "gri kemer",
+      "tip": "renk+kategori",
+      "zorluk": "zor",
+      "dogru_sayisi": 1,
+      "rr": 0.0,
+      "ilk_sira": null,
+      "recall@1": 0.0,
+      "recall@5": 0.0
+    },
+    {
+      "sorgu": "Classic",
+      "tip": "marka",
+      "zorluk": "anahtar kelime",
+      "dogru_sayisi": 1,
+      "rr": 0.0,
+      "ilk_sira": null,
+      "recall@1": 0.0,
+      "recall@5": 0.0
+    },
+    {
+      "sorgu": "Puma",
+      "tip": "marka",
+      "zorluk": "anahtar kelime",
+      "dogru_sayisi": 3,
+      "rr": 1.0,
+      "ilk_sira": 1,
+      "recall@1": 0.3333333333333333,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "Doodle",
+      "tip": "marka",
+      "zorluk": "anahtar kelime",
+      "dogru_sayisi": 1,
+      "rr": 0.0,
+      "ilk_sira": null,
+      "recall@1": 0.0,
+      "recall@5": 0.0
+    },
+    {
+      "sorgu": "Fila",
+      "tip": "marka",
+      "zorluk": "anahtar kelime",
+      "dogru_sayisi": 2,
+      "rr": 1.0,
+      "ilk_sira": 1,
+      "recall@1": 0.5,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "Wrangler",
+      "tip": "marka",
+      "zorluk": "anahtar kelime",
+      "dogru_sayisi": 1,
+      "rr": 1.0,
+      "ilk_sira": 1,
+      "recall@1": 1.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "Mark",
+      "tip": "marka",
+      "zorluk": "anahtar kelime",
+      "dogru_sayisi": 1,
+      "rr": 0.2,
+      "ilk_sira": 5,
+      "recall@1": 0.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "Fabindia",
+      "tip": "marka",
+      "zorluk": "anahtar kelime",
+      "dogru_sayisi": 1,
+      "rr": 1.0,
+      "ilk_sira": 1,
+      "recall@1": 1.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "John",
+      "tip": "marka",
+      "zorluk": "anahtar kelime",
+      "dogru_sayisi": 4,
+      "rr": 0.5,
+      "ilk_sira": 2,
+      "recall@1": 0.0,
+      "recall@5": 0.25
+    },
+    {
+      "sorgu": "Spykar",
+      "tip": "marka",
+      "zorluk": "anahtar kelime",
+      "dogru_sayisi": 1,
+      "rr": 0.2,
+      "ilk_sira": 5,
+      "recall@1": 0.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "Turtle",
+      "tip": "marka",
+      "zorluk": "anahtar kelime",
+      "dogru_sayisi": 1,
+      "rr": 0.0,
+      "ilk_sira": null,
+      "recall@1": 0.0,
+      "recall@5": 0.0
+    },
+    {
+      "sorgu": "Gini",
+      "tip": "marka",
+      "zorluk": "anahtar kelime",
+      "dogru_sayisi": 1,
+      "rr": 0.0,
+      "ilk_sira": null,
+      "recall@1": 0.0,
+      "recall@5": 0.0
+    },
+    {
+      "sorgu": "Gas",
+      "tip": "marka",
+      "zorluk": "anahtar kelime",
+      "dogru_sayisi": 1,
+      "rr": 0.0,
+      "ilk_sira": null,
+      "recall@1": 0.0,
+      "recall@5": 0.0
+    },
+    {
+      "sorgu": "GAS",
+      "tip": "marka",
+      "zorluk": "anahtar kelime",
+      "dogru_sayisi": 2,
+      "rr": 0.0,
+      "ilk_sira": null,
+      "recall@1": 0.0,
+      "recall@5": 0.0
+    },
+    {
+      "sorgu": "Vans",
+      "tip": "marka",
+      "zorluk": "anahtar kelime",
+      "dogru_sayisi": 1,
+      "rr": 1.0,
+      "ilk_sira": 1,
+      "recall@1": 1.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "Baggit",
+      "tip": "marka",
+      "zorluk": "anahtar kelime",
+      "dogru_sayisi": 1,
+      "rr": 0.0,
+      "ilk_sira": null,
+      "recall@1": 0.0,
+      "recall@5": 0.0
+    },
+    {
+      "sorgu": "Peperone",
+      "tip": "marka",
+      "zorluk": "anahtar kelime",
+      "dogru_sayisi": 1,
+      "rr": 0.0,
+      "ilk_sira": null,
+      "recall@1": 0.0,
+      "recall@5": 0.0
+    },
+    {
+      "sorgu": "Murcia",
+      "tip": "marka",
+      "zorluk": "anahtar kelime",
+      "dogru_sayisi": 1,
+      "rr": 0.0,
+      "ilk_sira": null,
+      "recall@1": 0.0,
+      "recall@5": 0.0
+    },
+    {
+      "sorgu": "French",
+      "tip": "marka",
+      "zorluk": "anahtar kelime",
+      "dogru_sayisi": 1,
+      "rr": 0.0,
+      "ilk_sira": null,
+      "recall@1": 0.0,
+      "recall@5": 0.0
+    },
+    {
+      "sorgu": "Rocky",
+      "tip": "marka",
+      "zorluk": "anahtar kelime",
+      "dogru_sayisi": 1,
+      "rr": 0.0,
+      "ilk_sira": null,
+      "recall@1": 0.0,
+      "recall@5": 0.0
+    },
+    {
+      "sorgu": "Kiara",
+      "tip": "marka",
+      "zorluk": "anahtar kelime",
+      "dogru_sayisi": 1,
+      "rr": 0.2,
+      "ilk_sira": 5,
+      "recall@1": 0.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "Skagen",
+      "tip": "marka",
+      "zorluk": "anahtar kelime",
+      "dogru_sayisi": 1,
+      "rr": 1.0,
+      "ilk_sira": 1,
+      "recall@1": 1.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "Maxima",
+      "tip": "marka",
+      "zorluk": "anahtar kelime",
+      "dogru_sayisi": 2,
+      "rr": 1.0,
+      "ilk_sira": 1,
+      "recall@1": 0.5,
+      "recall@5": 0.5
+    },
+    {
+      "sorgu": "Titan",
+      "tip": "marka",
+      "zorluk": "anahtar kelime",
+      "dogru_sayisi": 1,
+      "rr": 1.0,
+      "ilk_sira": 1,
+      "recall@1": 1.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "Esprit",
+      "tip": "marka",
+      "zorluk": "anahtar kelime",
+      "dogru_sayisi": 1,
+      "rr": 1.0,
+      "ilk_sira": 1,
+      "recall@1": 1.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "Being",
+      "tip": "marka",
+      "zorluk": "anahtar kelime",
+      "dogru_sayisi": 1,
+      "rr": 0.25,
+      "ilk_sira": 4,
+      "recall@1": 0.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "Nike",
+      "tip": "marka",
+      "zorluk": "anahtar kelime",
+      "dogru_sayisi": 3,
+      "rr": 1.0,
+      "ilk_sira": 1,
+      "recall@1": 0.3333333333333333,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "ADIDAS",
+      "tip": "marka",
+      "zorluk": "anahtar kelime",
+      "dogru_sayisi": 4,
+      "rr": 1.0,
+      "ilk_sira": 1,
+      "recall@1": 0.25,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "Police",
+      "tip": "marka",
+      "zorluk": "anahtar kelime",
+      "dogru_sayisi": 1,
+      "rr": 0.5,
+      "ilk_sira": 2,
+      "recall@1": 0.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "Formula",
+      "tip": "marka",
+      "zorluk": "anahtar kelime",
+      "dogru_sayisi": 1,
+      "rr": 1.0,
+      "ilk_sira": 1,
+      "recall@1": 1.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "DKNY",
+      "tip": "marka",
+      "zorluk": "anahtar kelime",
+      "dogru_sayisi": 1,
+      "rr": 1.0,
+      "ilk_sira": 1,
+      "recall@1": 1.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "Giorgio",
+      "tip": "marka",
+      "zorluk": "anahtar kelime",
+      "dogru_sayisi": 1,
+      "rr": 0.0,
+      "ilk_sira": null,
+      "recall@1": 0.0,
+      "recall@5": 0.0
+    },
+    {
+      "sorgu": "Image",
+      "tip": "marka",
+      "zorluk": "anahtar kelime",
+      "dogru_sayisi": 1,
+      "rr": 1.0,
+      "ilk_sira": 1,
+      "recall@1": 1.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "Van",
+      "tip": "marka",
+      "zorluk": "anahtar kelime",
+      "dogru_sayisi": 1,
+      "rr": 0.0,
+      "ilk_sira": null,
+      "recall@1": 0.0,
+      "recall@5": 0.0
+    },
+    {
+      "sorgu": "Pal",
+      "tip": "marka",
+      "zorluk": "anahtar kelime",
+      "dogru_sayisi": 2,
+      "rr": 0.0,
+      "ilk_sira": null,
+      "recall@1": 0.0,
+      "recall@5": 0.0
+    },
+    {
+      "sorgu": "Ray-Ban",
+      "tip": "marka",
+      "zorluk": "anahtar kelime",
+      "dogru_sayisi": 1,
+      "rr": 1.0,
+      "ilk_sira": 1,
+      "recall@1": 1.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "Louis",
+      "tip": "marka",
+      "zorluk": "anahtar kelime",
+      "dogru_sayisi": 1,
+      "rr": 0.0,
+      "ilk_sira": null,
+      "recall@1": 0.0,
+      "recall@5": 0.0
+    },
+    {
+      "sorgu": "Elle",
+      "tip": "marka",
+      "zorluk": "anahtar kelime",
+      "dogru_sayisi": 1,
+      "rr": 0.5,
+      "ilk_sira": 2,
+      "recall@1": 0.0,
+      "recall@5": 1.0
+    },
+    {
+      "sorgu": "ONLY",
+      "tip": "marka",
+      "zorluk": "anahtar kelime",
+      "dogru_sayisi": 2,
+      "rr": 0.5,
+      "ilk_sira": 2,
+      "recall@1": 0.0,
+      "recall@5": 0.5
+    },
+    {
+      "sorgu": "Fossil",
+      "tip": "marka",
+      "zorluk": "anahtar kelime",
+      "dogru_sayisi": 2,
+      "rr": 0.5,
+      "ilk_sira": 2,
+      "recall@1": 0.0,
+      "recall@5": 0.5
+    },
+    {
+      "sorgu": "Bulchee",
+      "tip": "marka",
+      "zorluk": "anahtar kelime",
+      "dogru_sayisi": 1,
+      "rr": 0.0,
+      "ilk_sira": null,
+      "recall@1": 0.0,
+      "recall@5": 0.0
+    },
+    {
+      "sorgu": "Lino",
+      "tip": "marka",
+      "zorluk": "anahtar kelime",
+      "dogru_sayisi": 2,
+      "rr": 0.25,
+      "ilk_sira": 4,
+      "recall@1": 0.0,
+      "recall@5": 0.5
+    },
+    {
+      "sorgu": "Peter",
+      "tip": "marka",
+      "zorluk": "anahtar kelime",
+      "dogru_sayisi": 1,
+      "rr": 0.0,
+      "ilk_sira": null,
+      "recall@1": 0.0,
+      "recall@5": 0.0
+    }
+  ]
+}

@@ -14,8 +14,12 @@ data/chroma/
 *.db
 *.sqlite3
 
-# NOT: data/photos/ bilerek ignore EDİLMEDİ.
-# Fotoğraflar yeniden üretilemez; laptop ölürse tek kopyası GitHub'da olmalı.
+# Ürün fotoğrafları depoya girmiyor. İki sebep:
+#   1) Telif: görseller açık bir veri setinden geliyor ama altlarındaki ürün
+#      fotoğrafları e-ticaret sitesine/markalara ait. Yeniden dağıtmıyoruz.
+#   2) Gerek yok: scripts/veriseti_kur.py ile birebir yeniden üretilebiliyorlar,
+#      ürün kimlikleri eval/urunler.jsonl içinde kayıtlı.
+data/photos/
 
 # Staj defteri — okula teslim edilen kişisel belge, depoda durmaz
 STAJ-DEFTERI.md
