@@ -1,0 +1,25 @@
+Bu fotoğraftaki ürünü incele ve SADECE aşağıdaki JSON'u döndür. Başka hiçbir şey yazma, açıklama ekleme, ```json ile sarma.
+
+{"kategori": "...", "marka": "...", "malzeme": "...", "durum": "saglam/hasarli/bilinmiyor", "ayirt_edici": "..."}
+
+KURALLAR:
+
+- kategori: ürünün TÜRÜNÜ yaz. Örnek: gomlek, pantolon, spor ayakkabi, bot, sirt cantasi, valiz, el cantasi, parfum, ruj, telefon, kulaklik, kablo, sarj aleti, tencere, bardak, oyuncak, kitap, saat, gozluk.
+  ASLA "gumruk", "tasfiye", "depo", "esya", "urun", "malzeme" gibi genel kelimeler yazma. Bunlar kategori değil.
+  Emin değilsen en yakın SOMUT türü yaz.
+
+- marka: etiket, logo veya baskı okunuyorsa marka adını yaz. Okunmuyorsa "bilinmiyor" yaz.
+  Marka UYDURMA. Tahmin etme. Ürünün şekline bakıp marka çıkarma.
+
+- malzeme: deri, sentetik deri, kumas, denim, plastik, metal, cam, seramik, ahsap, karton, kagit, silikon, kaucuk.
+  Emin değilsen "bilinmiyor" yaz.
+
+- durum: gözle görülür hasar, yırtık, kırık, ezik varsa "hasarli". Sağlam görünüyorsa "saglam". Fotoğraf yetersizse "bilinmiyor".
+
+- ayirt_edici: bu ürünü aynı türdeki diğerlerinden ayıran şey. En fazla 8 kelime.
+  Örnek: "on cebi fermuarli", "yuksek topuklu", "uzun kollu", "tekerlekli", "cizgili desenli".
+
+RENK YAZMA:
+Hiçbir alanda renk belirtme. "mavi", "siyah", "kirmizi", "acik", "koyu" gibi kelimeler kullanma.
+Renk bu sistemde fotoğrafın piksellerinden ayrıca hesaplanıyor. Sen de yazarsan iki kaynak
+birbiriyle çelişiyor ve kayıt bozuluyor.

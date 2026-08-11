@@ -17,6 +17,9 @@ data/chroma/
 # NOT: data/photos/ bilerek ignore EDİLMEDİ.
 # Fotoğraflar yeniden üretilemez; laptop ölürse tek kopyası GitHub'da olmalı.
 
+# Staj defteri — okula teslim edilen kişisel belge, depoda durmaz
+STAJ-DEFTERI.md
+
 # Ortam değişkenleri / anahtarlar
 .env
 .env.*
