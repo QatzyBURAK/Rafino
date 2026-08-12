@@ -119,13 +119,40 @@ KATEGORI_BASI_TAVAN = 6
 CIFT_BASI_TAVAN = 2
 
 
-def marka_cikar(urun_adi: str) -> str:
-    """Ürün adının ilk kelimesi genelde marka: 'Puma Men Grey T-shirt' -> Puma.
+# Ürün adları "{Marka} {Cinsiyet} {Açıklama}" kalıbında yazılmış.
+# Cinsiyet kelimesi markanın nerede bittiğini gösteriyor.
+_CINSIYET = {
+    "men", "men's", "mens", "women", "women's", "womens",
+    "boy", "boy's", "boys", "boys'", "girl", "girl's", "girls", "girls'",
+    "kids", "kid's", "unisex", "baby", "infant",
+}
 
-    Kusursuz değil ama İndeks C (anahtar kelime) testi için yeterli; marka
-    ground truth'u zaten bu alandan üretiliyor, yani tutarlı.
+
+def marka_cikar(urun_adi: str) -> str:
+    """Ürün adından markayı çıkarır.
+
+    İlk sürüm yalnızca ilk kelimeyi alıyordu ve iki kelimelik markaları
+    kesiyordu: "Lino Perros" -> "Lino", "Peter England" -> "Peter",
+    "Giorgio Armani" -> "Giorgio". Bu, değerlendirme setinde anlamsız marka
+    sorguları üretti ("John", "Pal", "French" diye arama yapmak) ve marka
+    ölçümünü geçersiz kıldı.
+
+    Düzeltme: cinsiyet kelimesine kadar olan tüm kelimeler marka sayılıyor.
+        "Lino Perros Women Weaved Grey Belt" -> "Lino Perros"
+        "Puma Men Grey T-shirt"              -> "Puma"
+
+    En fazla 3 kelime alınıyor; kalıba uymayan adlarda tüm başlığı marka
+    saymayı önlemek için.
     """
-    return urun_adi.split()[0] if urun_adi else "bilinmiyor"
+    if not urun_adi:
+        return "bilinmiyor"
+    kelimeler = urun_adi.split()
+    marka: list[str] = []
+    for kelime in kelimeler[:3]:
+        if kelime.lower().strip(".,") in _CINSIYET:
+            break
+        marka.append(kelime)
+    return " ".join(marka) if marka else kelimeler[0]
 
 
 def main() -> int:

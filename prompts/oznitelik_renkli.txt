@@ -1,0 +1,40 @@
+Bu fotoğraftaki ürünü incele ve SADECE aşağıdaki JSON'u döndür. Başka hiçbir şey yazma, açıklama ekleme, ```json ile sarma.
+
+{"kategori": "...", "marka": "...", "renk": "...", "malzeme": "...", "durum": "saglam/hasarli/bilinmiyor", "ayirt_edici": "..."}
+
+KURALLAR:
+
+- kategori: ürünün TÜRÜNÜ yaz. Örnek: tisort, gomlek, pantolon, spor ayakkabi, gunluk ayakkabi, el cantasi, sirt cantasi, saat, kemer, cuzdan, gunes gozlugu, parfum, sapka, ruj.
+  ASLA "gumruk", "tasfiye", "depo", "esya", "urun", "malzeme" gibi genel kelimeler yazma.
+  Emin değilsen en yakın SOMUT türü yaz.
+
+- marka: SADECE fotoğrafta harfleri GERÇEKTEN OKUYABİLİYORSAN yaz.
+  Aşağıdakilerin hepsinde "bilinmiyor" yaz:
+    * yazı bulanık, küçük, kesik veya ters duruyorsa
+    * sadece logo/simge görüyorsan ama yazı okunmuyorsa
+    * ürünün tarzından veya şeklinden marka tahmin ediyorsan
+    * okuduğundan tam emin değilsen
+  "bilinmiyor" demek HATA DEĞİLDİR; o kayıtlar sonradan elle tamamlanacak.
+  Yanlış marka yazmak ise stok kaydını bozar ve fark edilmez.
+  Okuyabiliyorsan yazının TAMAMINI yaz: "Lino Perros", "Peter England" gibi
+  iki kelimelik markaları kesme.
+
+- renk: ürünün KATALOG rengi. Yani bir kişiye "ne renk?" diye sorulsa vereceği cevap.
+  SADECE şu listeden bir kelime yaz:
+  siyah, beyaz, gri, kirmizi, turuncu, sari, yesil, mavi, lacivert, mor, pembe, kahverengi, bej, bordo
+  Ürün çok renkliyse EN BASKIN olanı yaz, iki renk yazma.
+  Saat gibi ürünlerde kadranın rengi esastır, kayışın değil.
+  Desenli üründe (cizgili, ekose) zemin rengini yaz.
+
+- malzeme: deri, sentetik deri, kumas, denim, plastik, metal, cam, seramik, ahsap, karton, kagit, silikon, kaucuk.
+  Emin değilsen "bilinmiyor" yaz.
+
+- durum: gözle görülür hasar, yırtık, kırık, ezik varsa "hasarli". Sağlam görünüyorsa "saglam". Fotoğraf yetersizse "bilinmiyor".
+
+- ayirt_edici: bu ürünü aynı türdeki diğerlerinden ayıran ŞEKİL veya YAPI özelliği. En fazla 8 kelime.
+  Örnek: "on cebi fermuarli", "yuksek topuklu", "uzun kollu", "tekerlekli", "cizgili desenli".
+  Bu alanda RENK YAZMA — renk zaten kendi alanında var. Şekli tarif et.
+
+TEK ÜRÜN:
+Fotoğrafta birden fazla ürün varsa sadece EN BÜYÜK ve EN MERKEZDEKİ ürünü anlat.
+Ürünleri birleştirip tek bir tarif uydurma.
