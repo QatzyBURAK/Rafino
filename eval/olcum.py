@@ -32,7 +32,9 @@ TIPLER = ("kategori", "renk+kategori", "marka")
 YAPILANDIRMALAR = {
     "A (gorsel)": ("gorsel",),
     "B (metin)": ("metin",),
-    "A+B (RRF)": ("gorsel", "metin"),
+    "C (fts)": ("fts",),
+    "A+B": ("gorsel", "metin"),
+    "A+B+C": ("gorsel", "metin", "fts"),
 }
 
 
@@ -97,10 +99,13 @@ def main() -> int:
 
     harita = kimlik_haritasi()
     arayici = Arayici(metin=metin_sayi > 0)
+    fts_var = arayici._sqlite is not None
 
     tum: dict[str, list[dict]] = {}
     for ad, kullan in YAPILANDIRMALAR.items():
         if "metin" in kullan and metin_sayi == 0:
+            continue
+        if "fts" in kullan and not fts_var:
             continue
         print(f"[i] Ölçülüyor: {ad}")
         tum[ad] = olc(arayici, sorgular, kullan, harita)
@@ -131,11 +136,12 @@ def main() -> int:
               f"{iskalanan:>8}/{len(sonuc)}")
 
     # --- Kazanç / kayıp ---
-    if "A (gorsel)" in tum and "A+B (RRF)" in tum:
+    en_iyi = "A+B+C" if "A+B+C" in tum else "A+B"
+    if "A (gorsel)" in tum and en_iyi in tum:
         print(f"\n{'=' * 78}")
-        print("A -> A+B DEĞİŞİM")
+        print(f"A -> {en_iyi} DEĞİŞİM")
         print("=" * 78)
-        taban, hibrit = tum["A (gorsel)"], tum["A+B (RRF)"]
+        taban, hibrit = tum["A (gorsel)"], tum[en_iyi]
         for tip in TIPLER:
             t = [s for s in taban if s["tip"] == tip]
             h = [s for s in hibrit if s["tip"] == tip]

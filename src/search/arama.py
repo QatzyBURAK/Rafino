@@ -12,17 +12,24 @@ eşleştirme yapmaya gerek kalmıyor.
 from __future__ import annotations
 
 from src import config
-from src.db import chroma
+from src.db import chroma, sqlite
 from src.models.embedder import GorselEmbedder, MetinEmbedder
 from src.search.fusion import rrf_aciklamali
 
 
 class Arayici:
-    """Embedder'ları açık tutar; her sorguda yeniden yüklemek çok pahalı."""
+    """Embedder'ları ve veritabanı bağlantısını açık tutar.
 
-    def __init__(self, gorsel: bool = True, metin: bool = True) -> None:
+    Her sorguda model yüklemek çok pahalı (görsel embedder ~15 sn); bu sınıf
+    bir kez kurulup tekrar tekrar kullanılıyor.
+    """
+
+    def __init__(self, gorsel: bool = True, metin: bool = True, fts: bool = True) -> None:
         self.gorsel_embedder = GorselEmbedder() if gorsel else None
         self.metin_embedder = MetinEmbedder() if metin else None
+        self._sqlite = None
+        if fts and config.SQLITE_YOLU.exists():
+            self._sqlite = sqlite.baglan()
 
     # --- Tek indeksler ---
 
@@ -43,13 +50,19 @@ class Arayici:
         cevap = koleksiyon.query(query_embeddings=[vektor.tolist()], n_results=k)
         return cevap["ids"][0]
 
+    def fts_sirala(self, sorgu: str, k: int) -> list[str]:
+        """İndeks C: anahtar kelime (BM25). Marka ve ürün kodu için."""
+        if self._sqlite is None:
+            return []
+        return sqlite.ara(self._sqlite, sorgu, limit=k)
+
     # --- Hibrit ---
 
     def ara(
         self,
         sorgu: str,
         k: int = config.VARSAYILAN_SONUC,
-        kullan: tuple[str, ...] = ("gorsel", "metin"),
+        kullan: tuple[str, ...] = ("gorsel", "metin", "fts"),
         agirliklar: dict[str, float] | None = None,
         derinlik: int | None = None,
     ) -> list[dict]:
@@ -67,6 +80,12 @@ class Arayici:
             bulunan = self.metin_sirala(sorgu, derinlik)
             if bulunan:
                 siralamalar["metin"] = bulunan
+        if "fts" in kullan:
+            bulunan = self.fts_sirala(sorgu, derinlik)
+            # Boş sonucu RRF'e vermiyoruz: anahtar kelime araması eşleşme
+            # bulamadığında sessiz kalmalı, sıralamayı seyreltmemeli.
+            if bulunan:
+                siralamalar["fts"] = bulunan
 
         if not siralamalar:
             return []
@@ -84,3 +103,6 @@ class Arayici:
             self.gorsel_embedder.bosalt()
         if self.metin_embedder:
             self.metin_embedder.bosalt()
+        if self._sqlite is not None:
+            self._sqlite.close()
+            self._sqlite = None
