@@ -39,6 +39,22 @@ def _gecerli(deger) -> str | None:
     return None if metin.lower() in BOS_DEGERLER else metin
 
 
+# Türkçe harfleri ASCII karşılığına indirger. Yalnızca KARŞILAŞTIRMA için;
+# saklanan ve gösterilen metin hep düzgün Türkçe kalıyor.
+_TR_ASCII = str.maketrans("ıİşŞğĞüÜöÖçÇ", "iIsSgGuUoOcC")
+
+
+def _sadelestir(metin: str) -> str:
+    """Karşılaştırma için sadeleştirir: 'sağlam' ve 'saglam' aynı sayılır.
+
+    VLM aynı kavramı iki yazımla döndürebiliyor: istemdeki kelime listeleri
+    eskiden ASCII yazılıydı ve model onları aynen kopyalıyordu. Liste düzeltildi
+    ama eski kayıtlar duruyor, üstelik model serbest metinde zaten Türkçe
+    yazıyordu. Değere göre dallanan her yer bu iki yazımı da kabul etmeli.
+    """
+    return metin.strip().lower().translate(_TR_ASCII)
+
+
 def aciklama_uret(oznitelik: dict, renk: str | None = None) -> str:
     """Öznitelik sözlüğünden aranabilir Türkçe cümle kurar.
 
@@ -66,9 +82,14 @@ def aciklama_uret(oznitelik: dict, renk: str | None = None) -> str:
 
     if ayirt:
         cumle += f" {ayirt}."
-    if durum and durum != "saglam":
+    if durum and _sadelestir(durum) != "saglam":
         # Sadece hasarlı/bilinmeyen durumu yaz; "sağlam" varsayılan olduğu için
         # her cümleye eklemek metni seyreltir ve aramayı bozar.
+        #
+        # Karşılaştırma sadeleştirilerek yapılıyor: istem eskiden "saglam"
+        # istiyordu, artık "sağlam" istiyor. Düz eşitlik kullanılsaydı istem
+        # değiştiği anda HER ürün hasarlı sayılırdı — hem de sessizce, çünkü
+        # sonuç yine geçerli bir cümle oluyor.
         cumle += f" {durum}."
 
     return cumle

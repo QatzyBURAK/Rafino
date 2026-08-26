@@ -1,11 +1,21 @@
-Bu fotoğraftaki ürünü incele ve SADECE aşağıdaki JSON'u döndür. Başka hiçbir şey yazma, açıklama ekleme, ```json ile sarma.
+Bu fotoğraftaki BÜTÜN ürünleri tek tek incele ve SADECE aşağıdaki JSON'u döndür. Başka hiçbir şey yazma, açıklama ekleme, ```json ile sarma.
 
-{"kategori": "...", "marka": "...", "renk": "...", "malzeme": "...", "durum": "sağlam/hasarlı/bilinmiyor", "ayirt_edici": "..."}
+{"urunler": [{"kutu": [x1, y1, x2, y2], "kategori": "...", "marka": "...", "renk": "...", "malzeme": "...", "durum": "sağlam/hasarlı/bilinmiyor", "ayirt_edici": "..."}]}
 
 KURALLAR:
 
+- kutu: ürünün fotoğraftaki sınırlayıcı kutusu. Dört tam sayı: [sol, üst, sağ, alt].
+  Koordinatlar 0-1000 aralığına ölçeklenmiş olmalı; fotoğrafın piksel boyutunu
+  kullanma. Kutu ürünün TAMAMINI içermeli, komşu ürünü içine almamalı.
+
+- Kaç ürün varsa o kadar nesne yaz. Fotoğrafta tek ürün varsa listede tek nesne olur.
+  Aynı ürünün parçalarını (kapak, kayış, kutu) AYRI ürün sayma.
+  Bir takımın parçaları ayrı satılabiliyorsa ayrı ürün say: gömlek ve şort ayrı yazılır.
+
+- Arka plandaki askı, manken, masa, zemin gibi şeyleri ürün sayma.
+
 - kategori: ürünün TÜRÜNÜ yaz. Örnek: tişört, gömlek, pantolon, spor ayakkabı, günlük ayakkabı, el çantası, sırt çantası, saat, kemer, cüzdan, güneş gözlüğü, parfüm, şapka, ruj.
-  ASLA "gumruk", "tasfiye", "depo", "esya", "urun", "malzeme" gibi genel kelimeler yazma.
+  ASLA "gümrük", "tasfiye", "depo", "eşya", "ürün", "malzeme" gibi genel kelimeler yazma.
   Emin değilsen en yakın SOMUT türü yaz.
 
 - marka: SADECE fotoğrafta harfleri GERÇEKTEN OKUYABİLİYORSAN yaz.
@@ -16,15 +26,12 @@ KURALLAR:
     * okuduğundan tam emin değilsen
   "bilinmiyor" demek HATA DEĞİLDİR; o kayıtlar sonradan elle tamamlanacak.
   Yanlış marka yazmak ise stok kaydını bozar ve fark edilmez.
-  Okuyabiliyorsan yazının TAMAMINI yaz: "Lino Perros", "Peter England" gibi
-  iki kelimelik markaları kesme.
 
 - renk: ürünün KATALOG rengi. Yani bir kişiye "ne renk?" diye sorulsa vereceği cevap.
   SADECE şu listeden bir kelime yaz:
   siyah, beyaz, gri, kırmızı, turuncu, sarı, yeşil, mavi, lacivert, mor, pembe, kahverengi, bej, bordo
   Ürün çok renkliyse EN BASKIN olanı yaz, iki renk yazma.
-  Saat gibi ürünlerde kadranın rengi esastır, kayışın değil.
-  Desenli üründe (cizgili, ekose) zemin rengini yaz.
+  Desenli üründe (çizgili, ekose) zemin rengini yaz.
 
 - malzeme: deri, sentetik deri, kumaş, denim, plastik, metal, cam, seramik, ahşap, karton, kağıt, silikon, kauçuk.
   Emin değilsen "bilinmiyor" yaz.
@@ -38,7 +45,3 @@ KURALLAR:
 TÜRKÇE YAZIM:
 Yukarıdaki listelerden kelime seçerken harfleri AYNEN kopyala.
 "gömlek" yaz, "gomlek" yazma. "kırmızı" yaz, "kirmizi" yazma.
-
-TEK ÜRÜN:
-Fotoğrafta birden fazla ürün varsa sadece EN BÜYÜK ve EN MERKEZDEKİ ürünü anlat.
-Ürünleri birleştirip tek bir tarif uydurma.

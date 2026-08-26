@@ -11,6 +11,8 @@ eşleştirme yapmaya gerek kalmıyor.
 
 from __future__ import annotations
 
+import threading
+
 from src import config
 from src.db import chroma, sqlite
 from src.models.embedder import GorselEmbedder, MetinEmbedder
@@ -27,11 +29,26 @@ class Arayici:
     def __init__(self, gorsel: bool = True, metin: bool = True, fts: bool = True) -> None:
         self.gorsel_embedder = GorselEmbedder() if gorsel else None
         self.metin_embedder = MetinEmbedder() if metin else None
-        self._sqlite = None
-        if fts and config.SQLITE_YOLU.exists():
-            self._sqlite = sqlite.baglan()
+        # FTS bağlantısı iş parçacığı başına açılıyor; bkz. `_fts_baglantisi`.
+        self._fts_acik = bool(fts and config.SQLITE_YOLU.exists())
+        self._yerel = threading.local()
 
     # --- Tek indeksler ---
+
+    @staticmethod
+    def _esikle(cevap: dict, esik: float) -> list[str]:
+        """Eşikten uzak komşuları atar.
+
+        Vektör araması "bulamadım" diyemez; her zaman en yakın k kaydı döner.
+        Depoda olmayan bir ürün arandığında bu, alakasız sonuçlardan oluşan
+        ikna edici bir liste üretiyor. Mesafeye bakıp uzak olanları atmak,
+        sisteme "bilmiyorum" deme imkânı veriyor.
+        """
+        kimlikler = cevap["ids"][0]
+        mesafeler = cevap.get("distances", [[]])[0]
+        if not mesafeler:
+            return kimlikler
+        return [k for k, m in zip(kimlikler, mesafeler) if m <= esik]
 
     def gorsel_sirala(self, sorgu: str, k: int) -> list[str]:
         """İndeks A: sorgu metni -> fotoğraf vektörleri."""
@@ -39,7 +56,7 @@ class Arayici:
         cevap = chroma.gorsel_koleksiyon().query(
             query_embeddings=[vektor.tolist()], n_results=k
         )
-        return cevap["ids"][0]
+        return self._esikle(cevap, config.GORSEL_ALAKA_ESIGI)
 
     def metin_sirala(self, sorgu: str, k: int) -> list[str]:
         """İndeks B: sorgu metni -> VLM açıklamalarının vektörleri."""
@@ -48,13 +65,30 @@ class Arayici:
             return []
         vektor = self.metin_embedder.sorguyu_gom([sorgu])[0]
         cevap = koleksiyon.query(query_embeddings=[vektor.tolist()], n_results=k)
-        return cevap["ids"][0]
+        return self._esikle(cevap, config.METIN_ALAKA_ESIGI)
+
+    def _fts_baglantisi(self):
+        """Bu iş parçacığına ait FTS bağlantısını döner, yoksa açar.
+
+        `Arayici` yaşam döngüsünde bir kez kuruluyor, ama `ara()` her istekte
+        FastAPI'nin iş parçacığı havuzundan çağrılıyor. Tek paylaşılan bağlantı
+        "SQLite objects created in a thread can only be used in that same
+        thread" hatası veriyordu: indeks C sessizce boş dönmüyor, arama ucunu
+        tamamen 500'e düşürüyordu. Aynı kalıp api/main.py `_baglanti()`'de var.
+        """
+        if not self._fts_acik:
+            return None
+        baglanti = getattr(self._yerel, "baglanti", None)
+        if baglanti is None:
+            baglanti = self._yerel.baglanti = sqlite.baglan()
+        return baglanti
 
     def fts_sirala(self, sorgu: str, k: int) -> list[str]:
         """İndeks C: anahtar kelime (BM25). Marka ve ürün kodu için."""
-        if self._sqlite is None:
+        baglanti = self._fts_baglantisi()
+        if baglanti is None:
             return []
-        return sqlite.ara(self._sqlite, sorgu, limit=k)
+        return sqlite.ara(baglanti, sorgu, limit=k)
 
     # --- Hibrit ---
 
@@ -72,10 +106,20 @@ class Arayici:
         k'dan büyük tutuluyor, çünkü bir indekste 8. sırada olan kayıt diğerinde
         1. sıradaysa birleşimde üste çıkabilir — dar alırsak o kaydı hiç görmeyiz.
         """
+        # Ağırlık verilmediyse ölçülmüş varsayılan kullanılıyor. Eşit ağırlık,
+        # indeks C'nin kesin marka eşleşmesini görsel gürültüyle aynı kefeye
+        # koyuyordu; bkz. config.RRF_AGIRLIKLARI.
+        if agirliklar is None:
+            agirliklar = config.RRF_AGIRLIKLARI
+
         derinlik = derinlik or max(k * 4, 20)
         siralamalar: dict[str, list[str]] = {}
         if "gorsel" in kullan and self.gorsel_embedder is not None:
-            siralamalar["gorsel"] = self.gorsel_sirala(sorgu, derinlik)
+            # Boş sonuç RRF'e verilmiyor; eşiği geçen kayıt yoksa bu indeks
+            # sessiz kalmalı (aynı kural aşağıda metin ve fts için de var).
+            bulunan = self.gorsel_sirala(sorgu, derinlik)
+            if bulunan:
+                siralamalar["gorsel"] = bulunan
         if "metin" in kullan and self.metin_embedder is not None:
             bulunan = self.metin_sirala(sorgu, derinlik)
             if bulunan:
@@ -103,6 +147,10 @@ class Arayici:
             self.gorsel_embedder.bosalt()
         if self.metin_embedder:
             self.metin_embedder.bosalt()
-        if self._sqlite is not None:
-            self._sqlite.close()
-            self._sqlite = None
+        # Yalnızca bu parçacığın bağlantısı kapatılıyor; diğerlerini süreç
+        # sonlanırken işletim sistemi topluyor.
+        self._fts_acik = False
+        baglanti = getattr(self._yerel, "baglanti", None)
+        if baglanti is not None:
+            baglanti.close()
+            self._yerel.baglanti = None

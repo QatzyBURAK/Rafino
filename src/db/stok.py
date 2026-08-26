@@ -19,7 +19,7 @@ from __future__ import annotations
 import sqlite3
 from datetime import datetime, timezone
 
-from src.db import chroma
+from src.db import chroma, sqlite
 
 
 def _simdi() -> str:
@@ -73,13 +73,8 @@ def guncelle(
     )
 
     yeni = urun_getir(baglanti, kimlik)
-    baglanti.execute("DELETE FROM urun_fts WHERE kimlik = ?", (kimlik,))
-    baglanti.execute(
-        """INSERT INTO urun_fts (kimlik, marka, kategori, urun_kodu, aciklama)
-           VALUES (?, ?, ?, ?, ?)""",
-        (kimlik, yeni.get("marka") or "", yeni.get("kategori") or "",
-         yeni.get("urun_kodu") or "", yeni.get("aciklama") or ""),
-    )
+    sqlite.fts_yaz(baglanti, kimlik, yeni.get("marka"), yeni.get("kategori"),
+                   yeni.get("urun_kodu"), yeni.get("aciklama"))
     baglanti.commit()
     return yeni
 

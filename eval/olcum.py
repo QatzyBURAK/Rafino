@@ -99,7 +99,7 @@ def main() -> int:
 
     harita = kimlik_haritasi()
     arayici = Arayici(metin=metin_sayi > 0)
-    fts_var = arayici._sqlite is not None
+    fts_var = arayici._fts_baglantisi() is not None
 
     tum: dict[str, list[dict]] = {}
     for ad, kullan in YAPILANDIRMALAR.items():

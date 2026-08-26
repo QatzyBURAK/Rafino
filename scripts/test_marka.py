@@ -32,7 +32,9 @@ def sadelestir(metin: str) -> str:
 
 def main() -> int:
     urun_yolu = config.EVAL_DIZINI / "urunler.jsonl"
-    vlm_yolu = config.VERI_DIZINI / "oznitelikler.jsonl"
+    # Yol argüman olarak verilebiliyor: farklı bir VLM'in çıktısını aynı ground
+    # truth'a karşı ölçmek için (bkz. eval/kiyas_vlm.py). Verilmezse varsayılan.
+    vlm_yolu = Path(sys.argv[1]) if len(sys.argv) > 1 else config.VERI_DIZINI / "oznitelikler.jsonl"
     for y in (urun_yolu, vlm_yolu):
         if not y.exists():
             print(f"[!] Dosya yok: {y}")

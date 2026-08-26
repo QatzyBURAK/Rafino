@@ -1,0 +1,108 @@
+/* Rafino — tasarım token'ları
+ *
+ * Üç katmanlı: ilkel (ham değer) -> anlamsal (rol) -> bileşen.
+ * Bileşen CSS'inde ham renk kodu YAZILMAZ, hep anlamsal token kullanılır;
+ * böylece palet tek yerden değişir.
+ *
+ * Stil yönü: Swiss / minimalizm + flat. Gerekçe: ürün tipi "lojistik" ve
+ * "B2B servis" için önerilen yön bu, ve kamu kurumunda kullanılacak bir arayüz
+ * dekorasyon değil netlik ister. Parlak renk, gradyan, glow, cam efekti YOK.
+ */
+
+:root {
+  /* --- İlkel: nötr eksen --- */
+  --n-0:   #ffffff;
+  --n-25:  #fcfcfd;
+  --n-50:  #f8fafc;
+  --n-100: #f1f5f9;
+  --n-200: #e2e8f0;
+  --n-300: #cbd5e1;
+  --n-400: #94a3b8;
+  --n-500: #64748b;
+  --n-600: #475569;
+  --n-700: #334155;
+  --n-800: #1e293b;
+  --n-900: #0f172a;
+
+  /* --- İlkel: vurgu (derin petrol mavisi; kurumsal güven, neon değil) --- */
+  --v-50:  #eef4f9;
+  --v-100: #d6e4ef;
+  --v-500: #2c6690;
+  --v-600: #1e4e79;
+  --v-700: #163a5c;
+  --v-800: #102b44;
+
+  /* --- İlkel: durum renkleri (bastırılmış tonlar) --- */
+  --olumlu-50:  #f0fdf4;
+  --olumlu-600: #15803d;
+  --uyari-50:   #fffbeb;
+  --uyari-600:  #b45309;
+  --hata-50:    #fef2f2;
+  --hata-600:   #b91c1c;
+
+  /* --- Anlamsal: yüzey ve metin --- */
+  --zemin:            var(--n-0);
+  --zemin-alt:        var(--n-50);
+  --zemin-vurgulu:    var(--v-50);
+  --yuzey:            var(--n-0);
+  --kenarlik:         var(--n-200);
+  --kenarlik-koyu:    var(--n-300);
+
+  --metin:            var(--n-900);
+  --metin-ikincil:    var(--n-600);
+  --metin-soluk:      var(--n-500);
+  --metin-ters:       var(--n-0);
+
+  --vurgu:            var(--v-600);
+  --vurgu-koyu:       var(--v-700);
+  --vurgu-acik:       var(--v-50);
+
+  /* --- Tipografi ---
+   * "Corporate Trust" eşleşmesi: Lexend + Source Sans 3.
+   * Lexend okuma akıcılığı için tasarlandı; kamu arayüzünde bu önemli.
+   * Sistem fontları yedekte — Google Fonts engellenirse sayfa bozulmaz. */
+  --font-baslik: "Lexend", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-govde:  "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono:   ui-monospace, "SF Mono", "Cascadia Mono", Consolas, monospace;
+
+  /* Ölçek: 1.25 oranlı, 16px tabanlı */
+  --ol-xs:   0.75rem;    /* 12 */
+  --ol-sm:   0.875rem;   /* 14 */
+  --ol-md:   1rem;       /* 16 - taban, asla küçültülmez */
+  --ol-lg:   1.125rem;   /* 18 */
+  --ol-xl:   1.375rem;   /* 22 */
+  --ol-2xl:  1.75rem;    /* 28 */
+  --ol-3xl:  2.25rem;    /* 36 */
+  --ol-4xl:  3rem;       /* 48 */
+
+  --satir-sik:  1.25;
+  --satir-std:  1.6;
+
+  /* --- Aralık: 4px tabanlı --- */
+  --a-1: 0.25rem;  --a-2: 0.5rem;   --a-3: 0.75rem;  --a-4: 1rem;
+  --a-5: 1.5rem;   --a-6: 2rem;     --a-7: 3rem;     --a-8: 4rem;
+  --a-9: 6rem;     --a-10: 8rem;
+
+  /* --- Kenar yuvarlaklığı: düşük. Yuvarlak köşe "oyuncak" hissi verir. --- */
+  --yuvarlak-sm: 3px;
+  --yuvarlak:    5px;
+  --yuvarlak-lg: 8px;
+
+  /* --- Gölge: çok hafif. Derinlik kenarlıkla anlatılır, gölgeyle değil. --- */
+  --golge-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
+  --golge:    0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+  --golge-lg: 0 4px 12px rgba(15, 23, 42, 0.07);
+
+  --gecis: 140ms cubic-bezier(0.4, 0, 0.2, 1);
+  --genislik: 1140px;
+  --genislik-dar: 760px;
+}
+
+/* Hareket hassasiyeti olan kullanıcılar için animasyonlar kapatılır. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

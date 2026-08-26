@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rafino — Görsel Tabanlı Akıllı Stok Takip Sistemi</title>
+<meta name="description" content="Rafino, ürün fotoğrafını okuyup özniteliklerini otomatik çıkarır ve günlük Türkçeyle aranabilir hale getirir. Ürün kodu bilmeden arayın, ürünü ve raf numarasını görün.">
+
+
+<!-- Yazı tipleri yerelde: scripts/fontlari_indir.py ile indirildi.
+     Google'dan çekmek sayfayı 746 ms bloke ediyordu ve internet yokken
+     tipografi Segoe UI'ye düşüp yerleşimi kaydırıyordu. -->
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="stil.css">
+</head>
+<body>
+
+<a href="#icerik" class="atla">İçeriğe atla</a>
+
+<header class="ust">
+  <div class="kap ust-ic">
+    <a href="#" class="marka" aria-label="Rafino ana sayfa">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+        <rect x="1.5" y="1.5" width="19" height="19" rx="2.5" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M1.5 8.2h19M1.5 14.2h19" stroke="currentColor" stroke-width="1.6"/>
+        <circle cx="6.4" cy="11.2" r="1.5" fill="currentColor"/>
+      </svg>
+      Rafino
+    </a>
+    <nav class="ust-menu" aria-label="Ana gezinme">
+      <a href="#sorun">Sorun</a>
+      <a href="#nasil">Nasıl çalışır</a>
+      <a href="#mimari">Mimari</a>
+      <a href="#olcum">Ölçümler</a>
+      <a href="#teknik">Teknik</a>
+    </nav>
+  </div>
+</header>
+
+<main id="icerik">
+
+  <!-- ============ Kahraman ============ -->
+  <section class="kahraman">
+    <div class="kap kahraman-izgara">
+      <div>
+        <span class="rozet">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+            <path d="M2.5 6.2l2.4 2.4 4.6-5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Yerel çalışır · Bulut gerektirmez
+        </span>
+
+        <h1>Depodaki ürünü, kodunu bilmeden bulun.</h1>
+
+        <p class="kahraman-alt">
+          Rafino ürün fotoğrafını okur, kategorisini ve markasını kendi çıkarır,
+          ürünü günlük Türkçeyle aranabilir hale getirir. Aradığınızı yazın;
+          ürünü ve raf numarasını görün.
+        </p>
+
+        <div class="kahraman-eylem">
+          <a href="#nasil" class="dugme dugme--birincil">
+            Nasıl çalıştığını gör
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="#olcum" class="dugme dugme--ikincil">Ölçüm sonuçları</a>
+        </div>
+      </div>
+
+      <!-- Ürünün tek bakışta anlatımı -->
+      <div class="gosterim" role="img" aria-label="Arama ekranı örneği: mavi el çantası araması sonucunda Lino Perros marka mavi deri el çantası, C-14 rafında bulunmuş.">
+        <div class="gosterim-cubuk" aria-hidden="true">
+          <span class="nokta"></span><span class="nokta"></span><span class="nokta"></span>
+          <span class="gosterim-baslik">rafino / arama</span>
+        </div>
+        <div class="gosterim-govde" aria-hidden="true">
+          <div class="arama-kutu">
+            <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
+              <circle cx="7.2" cy="7.2" r="5" stroke="currentColor" stroke-width="1.6"/>
+              <path d="M11 11l4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+            <span class="arama-metin">mavi el çantası<span class="imlec"></span></span>
+          </div>
+
+          <p class="sonuc-etiket">3 sonuç bulundu</p>
+
+          <div class="sonuc-kart sonuc-kart--ilk">
+            <div class="sonuc-gorsel">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M3 7h14v10H3z" stroke="currentColor" stroke-width="1.4"/>
+                <path d="M7 7V5a3 3 0 016 0v2" stroke="currentColor" stroke-width="1.4"/>
+              </svg>
+            </div>
+            <div class="sonuc-bilgi">
+              <div class="sonuc-ad">Lino Perros mavi deri el çantası</div>
+              <div class="sonuc-detay">Aksesuar · 4 adet · sağlam</div>
+            </div>
+            <span class="sonuc-raf">Raf C-14</span>
+          </div>
+
+          <div class="sonuc-kart">
+            <div class="sonuc-gorsel">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M3 7h14v10H3z" stroke="currentColor" stroke-width="1.4"/>
+                <path d="M7 7V5a3 3 0 016 0v2" stroke="currentColor" stroke-width="1.4"/>
+              </svg>
+            </div>
+            <div class="sonuc-bilgi">
+              <div class="sonuc-ad">Petrol mavisi kumaş el çantası</div>
+              <div class="sonuc-detay">Aksesuar · 1 adet · markası bilinmiyor</div>
+            </div>
+            <span class="sonuc-raf">Raf A-03</span>
+          </div>
+
+          <div class="sonuc-kart">
+            <div class="sonuc-gorsel">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M4 6h12v11H4z" stroke="currentColor" stroke-width="1.4"/>
+                <path d="M4 9.5h12" stroke="currentColor" stroke-width="1.4"/>
+              </svg>
+            </div>
+            <div class="sonuc-bilgi">
+              <div class="sonuc-ad">Lacivert sırt çantası</div>
+              <div class="sonuc-detay">Aksesuar · 2 adet · sağlam</div>
+            </div>
+            <span class="sonuc-raf">Raf B-07</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Sayılar ============ -->
+  <section class="bolum bolum--alt" style="padding-block: var(--a-6);">
+    <div class="kap izgara izgara--4">
+      <div class="istatistik">
+        <span class="istatistik-sayi">0.89</span>
+        <span class="istatistik-ad">Doğru sonucun ilk 5&#39;te çıkma oranı</span>
+      </div>
+      <div class="istatistik">
+        <span class="istatistik-sayi">3</span>
+        <span class="istatistik-ad">Birbirini tamamlayan arama indeksi</span>
+      </div>
+      <div class="istatistik">
+        <span class="istatistik-sayi">5,1 sn</span>
+        <span class="istatistik-ad">Fotoğraf başına öznitelik çıkarımı</span>
+      </div>
+      <div class="istatistik">
+        <span class="istatistik-sayi">8 GB</span>
+        <span class="istatistik-ad">Tek ekran kartında çalışır</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Sorun ============ -->
+  <section class="bolum" id="sorun">
+    <div class="kap">
+      <div class="bolum-baslik">
+        <p class="bolum-etiket">Sorun</p>
+        <h2>Depoda ürün çok, kayıt elle giriliyor.</h2>
+        <p>
+          Fikir, gümrük depolarındaki süreç incelenerek çıktı. Aynı sorun,
+          ürün çeşidinin fazla olduğu her depoda geçerli.
+        </p>
+      </div>
+
+      <div class="izgara izgara--2">
+        <div class="kart">
+          <div class="kart-ikon">
+            <svg width="19" height="19" viewBox="0 0 19 19" fill="none" aria-hidden="true">
+              <path d="M3 4.5h13M3 9.5h13M3 14.5h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Elle veri girişi yavaş ve hatalı</h3>
+          <p>
+            Her ürünün kategorisi, markası, rengi ve durumu tek tek yazılıyor.
+            Yüzlerce çeşit ürün olduğunda bu iş hem zaman alıyor hem tutarsızlaşıyor:
+            aynı ürün iki farklı kişi tarafından iki farklı şekilde kaydediliyor.
+          </p>
+        </div>
+
+        <div class="kart">
+          <div class="kart-ikon">
+            <svg width="19" height="19" viewBox="0 0 19 19" fill="none" aria-hidden="true">
+              <circle cx="8" cy="8" r="5.4" stroke="currentColor" stroke-width="1.6"/>
+              <path d="M12 12l4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Arama, ürün kodu bilmeyi gerektiriyor</h3>
+          <p>
+            Depocu ürünü gözüyle tanıyor ama sistemde bulamıyor; çünkü sistem
+            koddan arıyor, görünüşten değil. &ldquo;Şu mavi el çantası nerede&rdquo;
+            sorusunun karşılığı klasik stok yazılımlarında yok.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Nasıl çalışır ============ -->
+  <section class="bolum bolum--alt" id="nasil">
+    <div class="kap">
+      <div class="bolum-baslik">
+        <p class="bolum-etiket">Nasıl çalışır</p>
+        <h2>Fotoğraftan raf numarasına üç adım.</h2>
+        <p>Kayıt ve arama farklı zamanlarda, farklı modellerle çalışır.</p>
+      </div>
+
+      <div class="izgara izgara--3">
+        <div class="kart">
+          <span class="adim-no">01 — KAYIT</span>
+          <h3>Fotoğraf yüklenir</h3>
+          <p>
+            Görüntü-dil modeli fotoğrafı okuyup kategorisini, markasını, malzemesini
+            ve rengini yapısal bir kayda çevirir. Etiketteki yazı okunabiliyorsa
+            marka oradan alınır; okunamıyorsa &ldquo;bilinmiyor&rdquo; işaretlenir
+            ve operatöre sorulur — tahmin yürütülmez.
+          </p>
+        </div>
+
+        <div class="kart">
+          <span class="adim-no">02 — İNDEKSLEME</span>
+          <h3>Üç ayrı indekse yazılır</h3>
+          <p>
+            Aynı ürün üç farklı biçimde aranabilir hale gelir: fotoğrafın kendisi,
+            üretilen Türkçe açıklama ve marka&nbsp;/ ürün kodu. Yeni ürün tipi
+            geldiğinde model yeniden eğitilmez, yalnızca yeni kayıt eklenir.
+          </p>
+        </div>
+
+        <div class="kart">
+          <span class="adim-no">03 — ARAMA</span>
+          <h3>Günlük Türkçeyle sorulur</h3>
+          <p>
+            &ldquo;Mavi el çantası&rdquo; yazmanız yeterli. Üç indeks aynı anda
+            aranır, sonuçlar tek sıralamada birleştirilir ve ürün kartı raf
+            numarasıyla birlikte gelir.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Mimari ============ -->
+  <section class="bolum" id="mimari">
+    <div class="kap">
+      <div class="bolum-baslik">
+        <p class="bolum-etiket">Mimari</p>
+        <h2>Tek bir arama yöntemi yetmiyor.</h2>
+        <p>
+          Üç indeksin birlikte kullanılmasının sebebi kapsamı genişletmek değil:
+          <strong>üçünün hata yaptığı yerler birbirinden farklı.</strong>
+          Biri yanılırken diğeri doğru buluyor.
+        </p>
+      </div>
+
+      <div class="mimari">
+        <div class="indeks-kart">
+          <div class="indeks-harf">A</div>
+          <h3>Görsel indeks</h3>
+          <p class="indeks-tur">fotoğraf vektörü</p>
+          <ul class="indeks-liste">
+            <li><svg class="isaret isaret--iyi" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 7.3l2.6 2.6L11 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Güçlü:</strong> &ldquo;şuna benzer ürün&rdquo;, kopya tespiti</span></li>
+            <li><svg class="isaret isaret--kotu" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M4 4l6 6M10 4l-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span><strong>Zayıf:</strong> sıfatı nesneye bağlamak</span></li>
+          </ul>
+        </div>
+
+        <div class="indeks-kart">
+          <div class="indeks-harf">B</div>
+          <h3>Metin indeksi</h3>
+          <p class="indeks-tur">üretilen açıklamanın vektörü</p>
+          <ul class="indeks-liste">
+            <li><svg class="isaret isaret--iyi" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 7.3l2.6 2.6L11 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Güçlü:</strong> &ldquo;mavi el çantası&rdquo; gibi sıfatlı sorgular</span></li>
+            <li><svg class="isaret isaret--kotu" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M4 4l6 6M10 4l-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span><strong>Zayıf:</strong> fotoğrafta okunamayan bilgi</span></li>
+          </ul>
+        </div>
+
+        <div class="indeks-kart">
+          <div class="indeks-harf">C</div>
+          <h3>Anahtar kelime indeksi</h3>
+          <p class="indeks-tur">marka, ürün kodu · BM25</p>
+          <ul class="indeks-liste">
+            <li><svg class="isaret isaret--iyi" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 7.3l2.6 2.6L11 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Güçlü:</strong> marka adı, seri no, ürün kodu</span></li>
+            <li><svg class="isaret isaret--kotu" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M4 4l6 6M10 4l-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span><strong>Zayıf:</strong> eşanlamlı ve çekim ekleri</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="birlestir">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true" style="flex-shrink:0;color:var(--vurgu)">
+          <path d="M4 6h5l4 5 5 0M4 16h5l2-2.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="18.5" cy="11" r="2" stroke="currentColor" stroke-width="1.6"/>
+        </svg>
+        <div>
+          <h3>Sonuçlar sıra tabanlı birleştirmeyle tek listeye iner</h3>
+          <p>
+            Farklı modellerin benzerlik puanları birbiriyle kıyaslanamaz; birinde
+            yüksek sayılan bir değer diğerinde vasat olabilir. Bu yüzden puanlar
+            değil <strong>sıralamalar</strong> toplanıyor:
+            <code>skor = Σ 1 / (60 + sıra)</code>.
+            Böylece iki indekste birden üst sıralarda çıkan ürün, tek indekste
+            birinci olan ürünün önüne geçebiliyor — ve tek bir indeksin yanılması
+            sonucu bozmuyor.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Ölçümler ============ -->
+  <section class="bolum bolum--alt" id="olcum">
+    <div class="kap">
+      <div class="bolum-baslik">
+        <p class="bolum-etiket">Ölçümler</p>
+        <h2>İddia değil, ölçülmüş sonuç.</h2>
+        <p>
+          Sistem, etiketleri önceden bilinen 60 ürün ve 115 Türkçe sorgudan oluşan
+          bir değerlendirme seti üzerinde ölçüldü. Aşağıdaki tablo, yalnızca görsel
+          arama ile üç indeksin birlikte çalışmasını karşılaştırıyor.
+        </p>
+      </div>
+
+      <div class="tablo-sar">
+        <table>
+          <caption class="gizli-metin">
+            Sorgu tiplerine göre yalnızca görsel indeks ve üç indeksli hibrit
+            yapının karşılaştırması. Değerler, doğru sonucun ilk beş sonuç
+            içinde çıkma oranıdır.
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Sorgu tipi</th>
+              <th scope="col" class="sayi">Yalnızca görsel</th>
+              <th scope="col" class="sayi">Üç indeks birlikte</th>
+              <th scope="col" class="sayi">Değişim</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Renk + kategori <span style="color:var(--metin-soluk)">(&ldquo;mavi el çantası&rdquo;)</span></td>
+              <td class="sayi">0,750</td>
+              <td class="sayi">0,933</td>
+              <td class="sayi artis">+0,183</td>
+            </tr>
+            <tr>
+              <td>Marka <span style="color:var(--metin-soluk)">(&ldquo;Lino Perros&rdquo;)</span></td>
+              <td class="sayi">0,585</td>
+              <td class="sayi">0,885</td>
+              <td class="sayi artis">+0,300</td>
+            </tr>
+            <tr>
+              <td>Kategori <span style="color:var(--metin-soluk)">(&ldquo;kemer&rdquo;)</span></td>
+              <td class="sayi">0,567</td>
+              <td class="sayi">0,650</td>
+              <td class="sayi artis">+0,083</td>
+            </tr>
+            <tr class="vurgu-satir">
+              <td>Tüm sorgular</td>
+              <td class="sayi">0,670</td>
+              <td class="sayi">0,890</td>
+              <td class="sayi artis">+0,220</td>
+            </tr>
+            <tr>
+              <td>Hiç sonuç bulunamayan sorgu</td>
+              <td class="sayi">34 / 115</td>
+              <td class="sayi">8 / 115</td>
+              <td class="sayi artis">−26</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="margin-top: var(--a-4); font-size: var(--ol-sm); color: var(--metin-soluk); max-width: 68ch;">
+        Ölçüm koşulları: 60 ürün, 10 kategori, kategori başına 6 farklı renk.
+        Değerlendirme seti, aynı kategoride farklı renkli ürünler içerecek şekilde
+        <strong>kasıtlı olarak zorlaştırıldı</strong>; aksi hâlde renk ayrımı
+        sınanamazdı. Sayılar bu set için geçerlidir ve stok büyüdükçe yeniden
+        ölçülmelidir.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ Özellikler ============ -->
+  <section class="bolum">
+    <div class="kap">
+      <div class="bolum-baslik">
+        <p class="bolum-etiket">Özellikler</p>
+        <h2>Arama kadar kayıt disiplini de önemli.</h2>
+      </div>
+
+      <div class="izgara izgara--3">
+        <div class="kart">
+          <div class="kart-ikon">
+            <svg width="19" height="19" viewBox="0 0 19 19" fill="none" aria-hidden="true">
+              <path d="M9.5 3v13M3 9.5h13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Kopya kaydı yakalar</h3>
+          <p>
+            Aynı ürün ikinci kez kaydedilmek istendiğinde sistem bunu fark eder ve
+            operatöre sorar. Sessizce birleştirmez — yanlış birleştirme fark
+            edilmeyen bir stok hatasıdır.
+          </p>
+        </div>
+
+        <div class="kart">
+          <div class="kart-ikon">
+            <svg width="19" height="19" viewBox="0 0 19 19" fill="none" aria-hidden="true">
+              <path d="M3.5 15.5V8M8 15.5V4M12.5 15.5v-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Stok hareketleri silinmez</h3>
+          <p>
+            Giriş, çıkış ve sayım düzeltmeleri yalnızca eklenir. &ldquo;Şu an kaç
+            tane var&rdquo; sorusundan önemlisi &ldquo;neden bu kadar&rdquo;
+            sorusudur; geçmiş silinirse o cevap kaybolur.
+          </p>
+        </div>
+
+        <div class="kart">
+          <div class="kart-ikon">
+            <svg width="19" height="19" viewBox="0 0 19 19" fill="none" aria-hidden="true">
+              <path d="M9.5 2.5l6 3v5c0 3.4-2.5 6-6 7-3.5-1-6-3.6-6-7v-5l6-3z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Marka bilgisinin kaynağı kayıtlı</h3>
+          <p>
+            Her markanın nereden geldiği işaretlenir: modelin okuduğu, operatörün
+            girdiği veya barkoddan gelen. Okunamayan kayıtlar listelenir ve elle
+            tamamlanır.
+          </p>
+        </div>
+
+        <div class="kart">
+          <div class="kart-ikon">
+            <svg width="19" height="19" viewBox="0 0 19 19" fill="none" aria-hidden="true">
+              <rect x="3" y="3" width="13" height="13" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M3 7.5h13" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <h3>Raf konumu takibi</h3>
+          <p>
+            Arama sonucu ürünü değil, ürünün <em>yerini</em> verir. Depocunun asıl
+            ihtiyacı olan bilgi budur.
+          </p>
+        </div>
+
+        <div class="kart">
+          <div class="kart-ikon">
+            <svg width="19" height="19" viewBox="0 0 19 19" fill="none" aria-hidden="true">
+              <path d="M4 4v11M7 4v11M10.5 4v11M14 4v11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Barkod için hazırlık <span class="rozet-planlanan">planlanan</span></h3>
+          <p>
+            Barkod okunabildiğinde bu kesin bilgidir ve model tahminini geçersiz
+            kılmalıdır. Arayüzde alan ayrıldı, okuyucu henüz bağlanmadı: hangi
+            barkod sisteminin kullanılacağı (EAN-13, Code 128, QR veya şirkete
+            özel) belirlenmeden yazılacak kod büyük ihtimalle atılacaktı.
+            Şimdilik ürün kodu elle giriliyor.
+          </p>
+        </div>
+
+        <div class="kart">
+          <div class="kart-ikon">
+            <svg width="19" height="19" viewBox="0 0 19 19" fill="none" aria-hidden="true">
+              <circle cx="9.5" cy="9.5" r="6.5" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M9.5 5.5v4l2.5 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Toplu kayıt</h3>
+          <p>
+            Fotoğraflar tek tek değil toplu işlenir. Model bir kez yüklenir,
+            yükleme maliyeti tüm partiye bölünür.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Teknik ============ -->
+  <section class="bolum bolum--alt" id="teknik">
+    <div class="kap">
+      <div class="bolum-baslik">
+        <p class="bolum-etiket">Teknik</p>
+        <h2>Kurum içinde, kendi donanımınızda.</h2>
+        <p>
+          Ürün fotoğrafları ve stok verisi dışarı çıkmaz. Sistem tek bir ekran
+          kartı olan sıradan bir iş istasyonunda çalışır.
+        </p>
+      </div>
+
+      <div class="izgara izgara--2">
+        <div class="kart">
+          <h3 style="margin-bottom: var(--a-4)">Çalışma gereksinimleri</h3>
+          <ul class="teknik-liste">
+            <li><span class="teknik-ad">Ekran kartı belleği</span><span class="teknik-deger">8 GB</span></li>
+            <li><span class="teknik-ad">Sistem belleği</span><span class="teknik-deger">32 GB</span></li>
+            <li><span class="teknik-ad">İnternet bağlantısı</span><span class="teknik-deger">yalnızca kurulumda</span></li>
+            <li><span class="teknik-ad">Veri konumu</span><span class="teknik-deger">tamamen yerel</span></li>
+            <li><span class="teknik-ad">İşletim sistemi</span><span class="teknik-deger">Windows / Linux</span></li>
+          </ul>
+        </div>
+
+        <div class="kart">
+          <h3 style="margin-bottom: var(--a-4)">Ölçülen başarım</h3>
+          <ul class="teknik-liste">
+            <li><span class="teknik-ad">Öznitelik çıkarımı</span><span class="teknik-deger">5,1 sn / fotoğraf</span></li>
+            <li><span class="teknik-ad">Arama yanıtı</span><span class="teknik-deger">saniyenin altında</span></li>
+            <li><span class="teknik-ad">Kayıt sırasında bellek</span><span class="teknik-deger">2,8 GB</span></li>
+            <li><span class="teknik-ad">60 ürünlük parti</span><span class="teknik-deger">yaklaşık 7 dakika</span></li>
+            <li><span class="teknik-ad">Model eğitimi</span><span class="teknik-deger">gerekmiyor</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <p style="margin-top: var(--a-5); font-size: var(--ol-sm); color: var(--metin-soluk); max-width: 68ch;">
+        Sistem bir sınıflandırma modeli kullanmaz. Depoya yarın hangi ürünün
+        geleceği bilinemeyeceği için sabit sınıflı bir model, listede olmayan ilk
+        üründe çöker. Rafino bunun yerine her ürünü aranabilir bir kayda çevirir;
+        yeni ürün tipi geldiğinde yeniden eğitim gerekmez.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="alt">
+  <div class="kap">
+    <div class="alt-izgara">
+      <div>
+        <span class="marka">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+            <rect x="1.5" y="1.5" width="19" height="19" rx="2.5" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M1.5 8.2h19M1.5 14.2h19" stroke="currentColor" stroke-width="1.6"/>
+            <circle cx="6.4" cy="11.2" r="1.5" fill="currentColor"/>
+          </svg>
+          Rafino
+        </span>
+        <p>
+          Görsel tabanlı akıllı stok takip sistemi. Ürün fotoğrafından otomatik
+          öznitelik çıkarımı ve doğal Türkçe ile arama.
+        </p>
+      </div>
+
+      <div>
+        <h4>Sayfa</h4>
+        <ul>
+          <li><a href="#sorun">Sorun</a></li>
+          <li><a href="#nasil">Nasıl çalışır</a></li>
+          <li><a href="#mimari">Mimari</a></li>
+          <li><a href="#olcum">Ölçümler</a></li>
+          <li><a href="#teknik">Teknik</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Proje</h4>
+        <ul>
+          <li><a href="https://github.com/QatzyBURAK/rafino">Kaynak kodu</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="alt-son">
+      <span>Rafino — staj projesi, 2026</span>
+      <span>Ölçüm sonuçları 60 ürünlük değerlendirme setine aittir.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

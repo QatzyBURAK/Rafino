@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rafino — Stok Takip</title>
+<!-- Yazı tipleri yerelde: scripts/fontlari_indir.py ile indirildi.
+     Google'dan çekmek sayfayı 746 ms bloke ediyordu ve internet yokken
+     tipografi Segoe UI'ye düşüp yerleşimi kaydırıyordu. -->
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="stil.css">
+</head>
+<body>
+
+<div class="uygulama">
+
+  <!-- ================= Üst çubuk ================= -->
+  <header class="ust">
+    <a href="/" class="marka">
+      <svg width="20" height="20" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+        <rect x="1.5" y="1.5" width="19" height="19" rx="2.5" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M1.5 8.2h19M1.5 14.2h19" stroke="currentColor" stroke-width="1.6"/>
+        <circle cx="6.4" cy="11.2" r="1.5" fill="currentColor"/>
+      </svg>
+      Rafino
+    </a>
+
+    <div class="ust-ozet" id="ustOzet" aria-live="polite">
+      <div class="ozet-oge">
+        <span class="ozet-sayi" id="ozetCesit">—</span>
+        <span class="ozet-ad">çeşit</span>
+      </div>
+      <div class="ozet-oge">
+        <span class="ozet-sayi" id="ozetAdet">—</span>
+        <span class="ozet-ad">toplam adet</span>
+      </div>
+      <div class="ozet-oge">
+        <span class="ozet-sayi" id="ozetEksik">—</span>
+        <span class="ozet-ad">markası eksik</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="govde">
+
+    <!-- ================= Yan menü ================= -->
+    <nav class="yan" aria-label="Ana gezinme">
+      <p class="yan-baslik">Görünüm</p>
+
+      <button class="yan-dugme" data-gorunum="arama" aria-current="true">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <circle cx="7" cy="7" r="4.6" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        Arama
+      </button>
+
+      <button class="yan-dugme" data-gorunum="tumu">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <rect x="2" y="2.5" width="12" height="11" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M2 6h12" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+        Tüm ürünler
+        <span class="sayac" id="sayacTumu"></span>
+      </button>
+
+      <button class="yan-dugme" data-gorunum="eksik">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M8 2.5l6 11H2l6-11z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M8 6.5v3M8 11.5v.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        Markası eksik
+        <span class="sayac sayac--uyari" id="sayacEksik"></span>
+      </button>
+
+      <p class="yan-baslik">İşlem</p>
+
+      <button class="yan-dugme" data-gorunum="ekle">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M8 3.2v9.6M3.2 8h9.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+        Ürün ekle
+      </button>
+
+      <p class="yan-baslik">Bilgi</p>
+      <div style="font-size: var(--ol-xs); color: var(--metin-soluk); line-height: 1.7; padding: 0 var(--a-3);">
+        <p style="margin-bottom: var(--a-3)">
+          Ürünü günlük dille tarif edin: <em>mavi el çantası</em>,
+          <em>siyah deri kemer</em>. Ürün kodu bilmenize gerek yok.
+        </p>
+        <p>
+          Stokta olmayan bir şey ararsanız sistem boş sonuç döner —
+          benzer görünen alakasız ürünleri sıralamaz.
+        </p>
+      </div>
+    </nav>
+
+    <!-- ================= Ana alan ================= -->
+    <main class="ana" id="ana">
+
+      <div class="arama-alani" id="aramaAlani">
+        <label for="aramaGirdi" class="gizli-metin">Ürün ara</label>
+        <div class="arama-kutu">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+            <circle cx="7.7" cy="7.7" r="5.2" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M11.6 11.6L15.5 15.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          <input type="text" id="aramaGirdi" autocomplete="off"
+                 placeholder="Ne arıyorsunuz? Örnek: mavi el çantası">
+        </div>
+        <p class="arama-ipucu">
+          Ürün kodu bilmenize gerek yok, günlük dille yazın.
+          Deneyin:
+          <button type="button" data-ornek="mavi el çantası">mavi el çantası</button>·
+          <button type="button" data-ornek="siyah saat">siyah saat</button>·
+          <button type="button" data-ornek="Lino Perros">Lino Perros</button>
+        </p>
+      </div>
+
+      <!-- ================= Ürün ekleme ================= -->
+      <div class="ekle-alani" id="ekleAlani" hidden>
+        <div class="liste-basligi">
+          <h2>Ürün ekle</h2>
+        </div>
+
+        <div class="ekle-izgara">
+
+          <!-- 1. Fotoğraf -->
+          <section class="ekle-kart">
+            <h3 class="ekle-baslik"><span class="ekle-no">1</span> Fotoğraf</h3>
+            <p class="ekle-aciklama">
+              Kayıt fotoğrafa bağlıdır: ürünün kimliği fotoğrafın içeriğinden
+              üretilir. Aynı fotoğraf ikinci kez yüklenirse sistem bunu fark eder.
+            </p>
+
+            <label class="foto-birak" id="fotoBirak" for="fotoGirdi">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect x="2.5" y="4.5" width="19" height="15" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="8.5" cy="10" r="1.8" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M3 17l5-4.5 4 3.5 3.5-3 5.5 5" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+              </svg>
+              <span class="foto-birak-metin">Fotoğraf seçin veya buraya sürükleyin</span>
+              <span class="foto-birak-not">JPG, PNG veya WebP · en fazla 25 MB</span>
+            </label>
+            <input type="file" id="fotoGirdi" accept="image/jpeg,image/png,image/webp" class="gizli-metin">
+
+            <div class="foto-onizleme" id="fotoOnizleme" hidden>
+              <img id="fotoOnizlemeGorsel" alt="Yüklenen fotoğrafın önizlemesi">
+              <div class="foto-onizleme-bilgi">
+                <p class="foto-durum" id="fotoDurum"></p>
+                <button type="button" class="dugme dugme--ikincil dugme--kucuk" id="fotoKaldir">
+                  Başka fotoğraf seç
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <!-- 2. Barkod — bilinçli olarak boş bırakıldı -->
+          <section class="ekle-kart ekle-kart--taslak" aria-labelledby="barkodBaslik">
+            <h3 class="ekle-baslik" id="barkodBaslik">
+              <span class="ekle-no">2</span> Barkod okuma
+              <span class="rozet-taslak">yapılmadı</span>
+            </h3>
+
+            <div class="barkod-yer">
+              <svg width="34" height="34" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                <path d="M4 7v18M8 7v18M11.5 7v18M15 7v13M18.5 7v18M22 7v13M25.5 7v18M28 7v18"
+                      stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+              </svg>
+              <p class="barkod-yer-metin">Barkod okuyucu buraya bağlanacak</p>
+            </div>
+
+            <p class="ekle-aciklama">
+              Bu bölüm bilerek boş: şirketin hangi barkod sistemini kullandığı
+              henüz bilinmiyor. EAN-13, Code 128, QR ve şirkete özel formatlar
+              farklı çözümler gerektiriyor; biri seçilmeden yazılan kod büyük
+              ihtimalle atılacaktı.
+            </p>
+            <p class="ekle-aciklama">
+              Şimdilik barkod numarası aşağıdaki <strong>Ürün kodu</strong>
+              alanına elle yazılabiliyor; okuyucu bağlandığında o alan
+              kendiliğinden dolacak.
+            </p>
+          </section>
+
+          <!-- 3. Bilgiler -->
+          <section class="ekle-kart">
+            <h3 class="ekle-baslik"><span class="ekle-no">3</span> Bilgiler</h3>
+
+            <div class="vlm-durum" id="vlmDurum" hidden aria-live="polite">
+              <span class="vlm-nokta" aria-hidden="true"></span>
+              <span class="vlm-metin" id="vlmMetin"></span>
+            </div>
+
+            <p class="ekle-aciklama" id="vlmAciklama">
+              Fotoğrafı yükleyin: kategori, marka ve renk fotoğraftan okunup
+              buraya kendiliğinden yazılacak. Size yalnızca yanlış olanı
+              düzeltmek kalıyor.
+            </p>
+
+            <form id="ekleForm" novalidate>
+              <div class="form-satir">
+                <label for="eKategori">Kategori <span class="zorunlu" aria-hidden="true">*</span></label>
+                <input type="text" id="eKategori" required
+                       list="kategoriListesi" placeholder="Örnek: el çantası" autocomplete="off">
+                <datalist id="kategoriListesi"></datalist>
+              </div>
+
+              <div class="form-ikili">
+                <div class="form-satir">
+                  <label for="eMarka">Marka</label>
+                  <input type="text" id="eMarka" placeholder="Örnek: Lino Perros" autocomplete="off">
+                </div>
+                <div class="form-satir">
+                  <label for="eRenk">Renk</label>
+                  <input type="text" id="eRenk" list="renkListesi"
+                         placeholder="Örnek: mavi" autocomplete="off">
+                  <datalist id="renkListesi">
+                    <option value="siyah"><option value="beyaz"><option value="gri">
+                    <option value="kırmızı"><option value="turuncu"><option value="sarı">
+                    <option value="yeşil"><option value="mavi"><option value="lacivert">
+                    <option value="mor"><option value="pembe"><option value="kahverengi">
+                    <option value="bej"><option value="bordo">
+                  </datalist>
+                </div>
+              </div>
+
+              <div class="form-ikili">
+                <div class="form-satir">
+                  <label for="eRaf">Raf</label>
+                  <input type="text" id="eRaf" placeholder="Örnek: C-14" autocomplete="off">
+                </div>
+                <div class="form-satir">
+                  <label for="eAdet">Adet</label>
+                  <input type="number" id="eAdet" value="1" min="0" step="1">
+                </div>
+              </div>
+
+              <div class="form-satir">
+                <label for="eKod">Ürün kodu / barkod</label>
+                <input type="text" id="eKod" placeholder="Örnek: 8690000000000" autocomplete="off">
+                <p class="form-not">Barkod okuyucu bağlanınca bu alan otomatik dolacak.</p>
+              </div>
+
+              <div class="ekle-eylem">
+                <button type="submit" class="dugme dugme--birincil" id="ekleDugme" disabled>
+                  Stoğa ekle
+                </button>
+                <p class="form-not" id="ekleUyari">Önce bir fotoğraf yükleyin.</p>
+              </div>
+            </form>
+          </section>
+
+        </div>
+      </div>
+
+      <div class="liste-basligi" id="listeBasligiSatir">
+        <h2 id="listeBaslik">Stok</h2>
+        <span class="adet" id="listeAdet"></span>
+      </div>
+
+      <div id="sonucAlani" role="region" aria-live="polite" aria-busy="false"></div>
+    </main>
+  </div>
+</div>
+
+<!-- ================= Detay paneli ================= -->
+<aside class="panel" id="panel" data-acik="false" aria-label="Ürün detayı" aria-hidden="true">
+  <div class="panel-ust">
+    <h2 id="panelBaslik">Ürün</h2>
+    <button class="dugme dugme--ikon" id="panelKapat" aria-label="Paneli kapat">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+        <path d="M5 5l8 8M13 5l-8 8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+  <div class="panel-govde" id="panelGovde"></div>
+</aside>
+
+<!-- ================= Onay penceresi ================= -->
+<dialog id="onayPencere">
+  <form method="dialog" class="dialog-govde">
+    <h2 id="onayBaslik">Emin misiniz?</h2>
+    <p id="onayMetin"></p>
+    <div class="form-satir" id="onayGerekceSatir">
+      <label for="onayGerekce">Gerekçe (kayda geçer)</label>
+      <input type="text" id="onayGerekce" placeholder="Örnek: hasarlı, iade edildi">
+    </div>
+    <div class="dialog-eylem">
+      <button value="iptal" class="dugme dugme--ikincil">Vazgeç</button>
+      <button value="onay" class="dugme dugme--tehlike" id="onayDugme">Sil</button>
+    </div>
+  </form>
+</dialog>
+
+<div class="bildirim-alan" id="bildirimAlan" aria-live="assertive"></div>
+
+<script src="uygulama.js"></script>
+</body>
+</html>

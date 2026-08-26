@@ -50,6 +50,61 @@ MESAFE_METRIGI = "cosine"
 RRF_K = 60
 VARSAYILAN_SONUC = 5
 
+# --- Alaka eşikleri ---
+# Vektör araması HER ZAMAN en yakın k komşuyu döndürür, ne kadar uzak olursa
+# olsun. Depoda olmayan bir şey arandığında ("bavul") bu, alakasız ürünlerden
+# kendinden emin bir liste üretiyordu — kullanıcı için en kötü davranış, çünkü
+# sistem bilmediğini bilmiyormuş gibi görünüyor.
+#
+# 20 Ağustos ölçümü (61 kayıt), en yakın komşunun kosinüs mesafesi:
+#
+#            depoda VAR olan sorgular   depoda OLMAYAN sorgular
+#   İndeks A   0.594 – 0.722              0.806 – 0.864
+#   İndeks B   0.127 – 0.218              0.154 – 0.211
+#
+# İndeks A rahat ayrışıyor: aradaki boşluğa 0.78 konuyor.
+#
+# İndeks B'de bantlar ÇAKIŞIYOR. Depodaki "Lino Perros" 0.218 alırken depoda
+# olmayan "kahve fincanı" 0.154 alıyor — yani B'yi tek başına kapı bekçisi
+# yapacak bir eşik yok. e5 sıralamada iyi, "bu bizde var mı" sorusunda değil.
+#
+# Bu yüzden B'nin eşiği gerçekten ayrıştığı yere çekildi (0.147). Bunun altında
+# kalan sorgular güvenle kabul ediliyor; üstünde kalanları B kabul etmiyor ama
+# kayıt yine de A veya C'den geçebiliyor. Ölçümdeki dört "VAR" sorgusu (mouse,
+# kemer, steelseries, Lino Perros) tam olarak böyle bulunuyor: B eliyor, marka
+# ve kategori eşleşmesi sayesinde C alıyor.
+#
+# Somut kazanç: "kahve makinesi" sorgusu artık boş dönüyor. Eskiden `"kahve"*`
+# öneki "kahverengi"ye tutunduğu ve B de yakın bulduğu için üç güneş gözlüğü
+# geliyordu.
+#
+# DİKKAT: bu sayılar 61 kayıtlık kataloğa göre. Katalog büyüdükçe mesafe
+# dağılımı kayar; eval/ altındaki ölçümle yeniden bakılmalı.
+GORSEL_ALAKA_ESIGI = 0.78
+METIN_ALAKA_ESIGI = 0.147
+
+# --- RRF ağırlıkları ---
+# Eşit ağırlıkta birleştirme, kesin bir eşleşmeyi rastgele bir benzerlikle aynı
+# kefeye koyuyordu. "steelserie" sorgusunda:
+#
+#   STEELE gri saat          skor=0.01639  {gorsel: 1}   <- görsel gürültü
+#   steelseries Beyaz mouse  skor=0.01639  {fts: 1}      <- tam marka öneki
+#
+# Skorlar birebir eşit çıkıyor ve beraberlik keyfî bozulup yanlış kayıt 1.
+# oluyordu. Oysa indeks C'nin var oluş sebebi tam da bu: gömme modelleri nadir
+# belirteçlerde (marka, ürün kodu) kötü, anahtar kelime araması ise tam
+# eşleşmeyi kesin biliyor. AND'e geçtikten sonra C yalnızca gerçek eşleşmede
+# konuşuyor, yani konuştuğunda ona daha çok kulak vermek doğru.
+#
+# 13 sorgudan oluşan etiketli küme üzerinde ağırlık taraması (20 Ağustos):
+#
+#   fts ağırlığı   1.0    1.5    2.0    2.5    3.0    4.0
+#   top-1 doğru    12/13  13/13  13/13  13/13  13/13  13/13
+#
+# 1.5'ten itibaren düzeliyor ve 4.0'a kadar hiçbir sorgu bozulmuyor. 2.0
+# seçildi: sınırın belirgin üstünde ama C'yi tek başına hâkim kılmıyor.
+RRF_AGIRLIKLARI = {"gorsel": 1.0, "metin": 1.0, "fts": 2.0}
+
 # --- Dosya türleri ---
 RESIM_UZANTILARI = {".jpg", ".jpeg", ".png", ".webp", ".bmp"}
 

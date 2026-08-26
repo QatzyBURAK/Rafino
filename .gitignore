@@ -36,3 +36,6 @@ STAJ-DEFTERI.md
 .idea/
 Thumbs.db
 desktop.ini
+
+# Kişisel/yerel Claude Code ayarları — kişiye özel, paylaşılmıyor
+.claude/settings.local.json
