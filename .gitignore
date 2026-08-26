@@ -21,8 +21,9 @@ data/chroma/
 #      ürün kimlikleri eval/urunler.jsonl içinde kayıtlı.
 data/photos/
 
-# Staj defteri — okula teslim edilen kişisel belge, depoda durmaz
+# Staja/okula özel kişisel belgeler — depoda durmaz, ayrı teslim edilir
 STAJ-DEFTERI.md
+KOMISYON-SUNUM.md
 
 # Ortam değişkenleri / anahtarlar
 .env
