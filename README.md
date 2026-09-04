@@ -48,10 +48,18 @@ Skorlar değil **sıralar** toplanır; farklı modellerin benzerlik değerleri f
 | Görsel embedding | `Qwen/Qwen3-VL-Embedding-2B` | Apache-2.0, `truncate_dim=512` |
 | Öznitelik çıkarımı | `Qwen/Qwen3-VL-4B-Instruct` | 4-bit NF4, etiketten marka okur |
 | Metin embedding | `intfloat/multilingual-e5-large` | MIT, Türkçe |
-| Çoklu ürün (opsiyonel) | `google/owlv2-base-patch16-ensemble` | Apache-2.0, kutu döndürür |
+| Çoklu ürün | Öznitelik VLM'inin kendisi | Tek fotoğraftaki ürünleri sınırlayıcı kutularıyla döndürür |
 
-Renk modelden sorulmaz, pikselden hesaplanır (HSV + k-means → sabit palet).
-Sebep: VLM aynı çağrıda alan ve serbest metin isteyince kendi içinde çelişiyordu.
+Çoklu ürün başta ayrı bir konum modeliyle (OWLv2) planlanmıştı; VLM zaten kutu
+üretebildiği için ayrı model yüklenmedi. Her kutu ayrı kırpılıp ayrı kaydediliyor
+(kimlik kırpığın içeriğinden üretiliyor, yoksa aynı fotoğraftaki ürünler görsel
+indekste ayrışmazdı).
+
+**Renk kaynağı — ölçümle değişen bir karar.** Başta renk pikselden hesaplanıyordu
+(HSV + k-means → sabit palet); varsayım "piksel modelden güvenilir" idi. Ölçüm
+tersini gösterdi (VLM %70 / piksel %38 doğru; ayrışan 20 üründe VLM 20-0), karar
+tersine çevrildi ve canlı yolda renk artık VLM'den alınıyor. Piksel yolu
+(`src/ingest/renk.py`) ölçümde referans olarak duruyor.
 
 ## Kurulum
 
@@ -71,6 +79,36 @@ Kurulumdan sonra doğrula:
 
 Bu betik özellikle şunu yakalar: `torch.__version__` sonunda `+cpu` varsa GPU hiç
 kullanılmıyordur ve her şey sessizce yavaş çalışır.
+
+Birebir sürüm kilidi için `requirements.lock.txt` kullanılır (çalışan ortamdan
+`pip freeze` ile üretildi; torch indeksi notu dosyanın başında).
+
+## Çalıştırma
+
+Web arayüzü, API ve veritabanı **tek komutla** ayağa kalkar. SQLite gömülüdür,
+ayrı bir veritabanı sunucusu gerekmez; arayüz de FastAPI tarafından `/` altında
+servis edilir.
+
+```
+.venv\Scripts\python.exe -m uvicorn src.api.main:app --host 127.0.0.1 --port 8000
+```
+
+`Application startup complete` satırını görünce (ilk açılışta arama modelleri
+yüklenir, ~15-25 sn) tarayıcıda `http://localhost:8000` aç. Arayüz iki ana akış
+sunar:
+
+- **Arama** — ürünü günlük dille yaz ("mavi el çantası"); üç indeks + RRF sonucu
+  raf konumuyla getirir. Stokta yoksa boş döner, alakasız ürün sıralamaz.
+- **Ürün ekle** — fotoğrafı yükle; kategori, marka ve renk fotoğraftan otomatik
+  dolar, operatör yalnızca doğrular/düzeltir. VLM ilk üründe yüklenir (~40 sn),
+  sonraki ürünler saniyeler içinde.
+
+`--reload` **kullanılmaz**: yeniden yükleme kipi modelleri her değişiklikte
+baştan yükler ve VLM alt sürecini bozar.
+
+Ağa açık bir kuruluma geçilirse (`--host 0.0.0.0`) önce kimlik doğrulama
+eklenmelidir; şu an auth yok (bilinçli, tek kullanıcılı yerel araç). Üretimde
+etkileşimli API dokümanlarını kapatmak için `RAFINO_URETIM=1` verilir.
 
 ## Değerlendirme verisi
 
@@ -93,6 +131,19 @@ Bu komut fotoğrafları `data/photos/` altına yazar, ground truth'u
 `eval/urunler.jsonl` ve sorguları `eval/sorgular.jsonl` olarak üretir.
 Ürün kimlikleri kayıtlı olduğu için sonuç her makinede birebir aynıdır.
 
+Sıfırdan tam kurulum (üç indeksi de doldurmak) sırasıyla:
+
+```
+.venv\Scripts\python.exe scripts\veriseti_kur.py 60   # fotoğraflar + ground truth
+.venv\Scripts\python.exe scripts\faz0.py              # İndeks A (görsel)
+.venv\Scripts\python.exe scripts\vlm_toplu.py         # VLM öznitelikleri -> data/oznitelikler.jsonl
+.venv\Scripts\python.exe scripts\indeks_b_kur.py vlm  # İndeks B (metin; renk kaynağı: vlm)
+.venv\Scripts\python.exe scripts\indeks_c_kur.py      # İndeks C (SQLite FTS5)
+```
+
+Sıra önemli: `indeks_b_kur.py`, `vlm_toplu.py`'nin ürettiği `oznitelikler.jsonl`
+dosyasını okur. Bu adımlardan sonra `uvicorn` ile arayüz açılabilir.
+
 ## Donanım
 
 RTX 4070 Laptop — 8 GB VRAM. **İki model asla aynı anda belleğe yüklenmez.**
@@ -101,12 +152,13 @@ Kayıt ve sorgu farklı zamanlarda, farklı modellerle çalışır.
 ## Klasör yapısı
 
 ```
-data/photos/    ürün fotoğrafları (git'e dahil — yeniden üretilemez)
-data/chroma/    vektör veritabanı (git'te yok — yeniden üretilebilir)
-docs/           teknik referans
+data/photos/    ürün fotoğrafları (git'te YOK — veriseti_kur.py ile üretilir)
+data/chroma/    vektör veritabanı (git'te yok — indeks betikleriyle üretilir)
+data/stok.db    SQLite: ürün, stok hareketi, İndeks C (git'te yok)
 eval/           değerlendirme seti ve ölçüm betikleri
 prompts/        VLM promptları (koda gömülmez, dosyadan okunur)
-scripts/        yardımcı betikler
-src/            uygulama kodu
-static/         arayüz
+scripts/        yardımcı ve indeks-kurulum betikleri
+src/            uygulama kodu (api, db, ingest, search, models)
+static/         web arayüzü
+tanitim/        tek sayfalık tanıtım sitesi
 ```
