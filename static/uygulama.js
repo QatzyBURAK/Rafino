@@ -661,6 +661,7 @@ $('#ekleForm').addEventListener('submit', async (olay) => {
         renk: $('#eRenk').value.trim() || null,
         raf: $('#eRaf').value.trim() || null,
         urun_kodu: $('#eKod').value.trim() || null,
+        ayirt_edici: $('#eDetay').value.trim() || null,
         adet: Number($('#eAdet').value) || 0,
       }),
     });
@@ -688,6 +689,10 @@ $('#ekleForm').addEventListener('submit', async (olay) => {
    iş DOĞRULAMA — özellikle marka, çünkü ölçüm VLM'in markayı ürünlerin ancak
    %43'ünde okuyabildiğini gösterdi (K11). */
 
+// Yalnızca bu üç alanı VLM dolduruyor. Detay/model alanı BİLEREK burada yok:
+// modeli ("iPhone 17") operatör yazar. VLM'in "ayirt_edici" okuması (şekil
+// tarifi, örn. "dikdörtgen kamera modülü") o alana konmuyor — operatörün
+// gireceği modelle karışırdı.
 const VLM_ALANLARI = {
   kategori: '#eKategori',
   marka: '#eMarka',
@@ -740,7 +745,7 @@ function ozniteligiFormaYaz(oznitelik) {
     vlmAlaniIsaretle(secici);
     yazilan += 1;
   }
-  return { yazilan, ayirt: (oznitelik.ayirt_edici || '').trim() };
+  return yazilan;
 }
 
 async function oznitelikCikar(dosya) {
@@ -779,15 +784,15 @@ async function oznitelikCikar(dosya) {
     }
 
     if (is.durum === 'bitti') {
-      const { yazilan, ayirt } = ozniteligiFormaYaz(is.oznitelik || {});
+      const yazilan = ozniteligiFormaYaz(is.oznitelik || {});
       if (yazilan === 0) {
         vlmDurumYaz(
           'Fotoğraftan okunabilir bilgi çıkmadı. Alanları elle doldurun.', 'hata'
         );
       } else {
-        const kuyruk = ayirt ? ` Ayrıca okundu: “${ayirt}”.` : '';
         vlmDurumYaz(
-          `${yazilan} alan fotoğraftan dolduruldu. Lütfen doğrulayın.${kuyruk}`,
+          `${yazilan} alan fotoğraftan dolduruldu. Lütfen doğrulayın; `
+          + 'gerekirse modeli/detayı elle ekleyin.',
           'bitti'
         );
       }
