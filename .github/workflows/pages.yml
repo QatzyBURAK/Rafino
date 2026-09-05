@@ -1,0 +1,52 @@
+# Tanıtım sitesini (tanitim/) GitHub Pages'e yayınlar.
+#
+# Site tamamen statik: build adımı yok, yazı tipleri yerelde, dış bağımlılık yok.
+# Bu yüzden yalnızca tanitim/ klasörü Pages yapısı olarak yükleniyor; uygulama
+# kodu (src/, modeller, veritabanı) yayınlanmıyor.
+#
+# Etkinleştirme (bir kez): repo → Settings → Pages → Source: "GitHub Actions".
+# Yayın adresi: https://<kullanıcı>.github.io/rafino/
+
+name: Tanıtım sitesi (Pages)
+
+on:
+  push:
+    branches: [main]
+    # Yalnızca tanıtım sitesi ya da bu iş akışı değişince yeniden yayınla.
+    paths:
+      - "tanitim/**"
+      - ".github/workflows/pages.yml"
+  workflow_dispatch: {}   # Actions sekmesinden elle de tetiklenebilir.
+
+# Pages dağıtımı için gereken en dar izinler.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Aynı anda tek dağıtım; yeni push eskisini iptal eder.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  yayinla:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.dagitim.outputs.page_url }}
+    steps:
+      - name: Depoyu al
+        uses: actions/checkout@v4
+
+      - name: Pages'i yapılandır
+        uses: actions/configure-pages@v5
+
+      - name: Tanıtım klasörünü yükle
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: tanitim
+
+      - name: Pages'e dağıt
+        id: dagitim
+        uses: actions/deploy-pages@v4
