@@ -24,6 +24,7 @@ data/photos/
 # Staja/okula özel kişisel belgeler — depoda durmaz, ayrı teslim edilir
 STAJ-DEFTERI.md
 KOMISYON-SUNUM.md
+NOTLAR.md
 
 # Ortam değişkenleri / anahtarlar
 .env
