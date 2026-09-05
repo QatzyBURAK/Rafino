@@ -6,10 +6,6 @@
 Kullanıcı ürün kodunu bilmeden, günlük Türkçe ile arar ("mavi valiz") ve ilgili ürünü
 raf konumuyla birlikte bulur.
 
-Okul stajı projesi · Başlangıç 10 Ağustos 2026 · Teslim 2 Eylül 2026
-
-Günlük ilerleme ve alınan kararların gerekçeleri: [STAJ-DEFTERI.md](STAJ-DEFTERI.md)
-
 ---
 
 ## Problem
