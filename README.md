@@ -2,6 +2,8 @@
 
 **Görsel tabanlı akıllı stok takibi.** Fotoğrafını yükle, Türkçe sor, rafını öğren.
 
+**🔗 Canlı tanıtım sitesi:** https://qatzyburak.github.io/rafino/
+
 Ürün fotoğrafı yüklenir; sistem ürünü tanır, özniteliklerini çıkarır ve indeksler.
 Kullanıcı ürün kodunu bilmeden, günlük Türkçe ile arar ("mavi valiz") ve ilgili ürünü
 raf konumuyla birlikte bulur.

@@ -39,5 +39,6 @@ NOTLAR.md
 Thumbs.db
 desktop.ini
 
-# Kişisel/yerel Claude Code ayarları — kişiye özel, paylaşılmıyor
-.claude/settings.local.json
+# Claude Code araç-gereci — projeye ait değil, depoda durmaz (yerelde kalır)
+.claude/
+.mcp.json
